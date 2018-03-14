@@ -14,6 +14,12 @@ export default class login extends Vue {
 
   onClick (): void {
     $('.btn').html('dxl');
-   bootbox.alert(this.msg);
+    bootbox.alert(this.msg);
   }
+  created (){
+    this.$http.get('http://web.dingxiaolin.com/api/mail/view').then(data=>{
+      console.log('data',data);
+    })
+  }
+
 }

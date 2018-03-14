@@ -3,9 +3,11 @@ import Router from 'vue-router'
 import login from '../views/login/login.ts'
 import test from '../views/test/test.ts'
 
+
 // var login = require ()
 
 Vue.use(Router)
+
 
 const router = new Router({
   routes: [
@@ -28,15 +30,19 @@ const router = new Router({
       path: '/test',
       name: 'test',
       /* 路由内钩子 */
+      component:test,
+      meta:{title: '登录'},
       // 需要登录才能进入的页面可以增加一个meta属性
-      meta: { 
-          requireAuth: true
-        },
-         component: (resolve) => {
-          require(['../components/luck28/Luck'], resolve)
-       }
+      // meta: { 
+      //     requireAuth: false
+      //   },
+      //    component: (resolve) => {
+      //     require(['../components/test/test'], resolve)
+      //  }
+      
     }
-  ]
+  ],
+  // mode:'history'   去#号
 })
 
 //  判断是否需要登录权限 以及是否登录

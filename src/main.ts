@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
+import VueResource from 'vue-resource'
 Vue.config.productionTip = false
-
+// Vue.use(VueResource)
 // 引入CSS
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "../node_modules/font-awesome/css/font-awesome.min.css"
