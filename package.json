@@ -12,6 +12,7 @@
     "cleanpack": "rimraf node_modules"
   },
   "dependencies": {
+    "popper.js": "^1.14.1",
     "vue": "^2.5.2",
     "vue-class-component": "^6.2.0",
     "vue-property-decorator": "^6.0.0",
