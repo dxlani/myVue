@@ -5,7 +5,6 @@ declare var bootbox:any;
 declare var $:any;
 
 @Component({
-  // template: '<button class="btn btn-sm btn-danger" @click="onClick">Click!</button>'
   name:'template',
   mixins: [template]
 })

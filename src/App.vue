@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
-     
+
+      <router-view></router-view>
+
+
   </div>
 </template>
 
@@ -34,5 +36,11 @@ input {border:none;outline:none}
 .lf   {float:left;}
 .rt  {float:right;}
 .clear  {clear:both;}
+
+
+#app{
+  width:100%;
+  height:100%;
+}
 
 </style>
