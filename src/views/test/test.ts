@@ -5,7 +5,7 @@ declare var bootbox:any;
 declare var $:any;
 
 @Component({
-  name:'template',
+  name:'test',
   mixins: [template]
 })
 export default class test extends Vue {

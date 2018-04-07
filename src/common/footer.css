@@ -1,0 +1,12 @@
+#footer{
+    background:lightgreen;
+    padding:10px;
+    position:fixed;
+    bottom:0;
+    width:90%;
+    
+}
+p{
+    color:#000;
+    text-align: center;
+}

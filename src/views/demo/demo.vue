@@ -1,0 +1,16 @@
+<template>
+  <div  id="demo">
+    <h3>{{ message }}</h3>
+    <ul>
+      <li v-for="user in users" v-on:click="user.show=!user.show">
+      <p  > 姓名：{{user.name}}</p>
+      <p v-show="user.show">职位：{{user.position}}</p> 
+      <p v-show="user.show">项目组：{{user.programe}}</p> 
+      </li>
+    </ul>
+  </div>
+</template> 
+ <style src="./demo.css" lang="css" scoped></style>
+
+
+

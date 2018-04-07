@@ -1,9 +1,12 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App.ts'
 import router from './router'
 import VueResource from 'vue-resource'
+
+// import navbar from './common/nav.vue'
+
 Vue.config.productionTip = false
-// Vue.use(VueResource)
+//  Vue.use(VueResource)
 // 引入CSS
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "../node_modules/font-awesome/css/font-awesome.min.css"
@@ -15,7 +18,9 @@ import "../node_modules/jquery-weui/dist/css/jquery-weui.min.css"
 //引入js
 import  '../node_modules/bootbox/bootbox.js'
 import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
-/* eslint-disable no-new */
+/* 全局注册组件 */
+// Vue.component('navbar',navbar);
+
 new Vue({
   el: '#app',
   router,

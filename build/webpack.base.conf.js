@@ -34,8 +34,15 @@ module.exports = {
          'jquery': 'jquery',
     }
   },
+  // externals:{
+  //   "vue":"Vue"
+  // },
   module: {
     rules: [
+      // {
+      //   test:/\.html$/,
+      //   loader:'text-loader'
+      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
