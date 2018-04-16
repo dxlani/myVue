@@ -28,7 +28,7 @@ const router = new Router({
       component: login,
       meta:{title: '登录'},
       /* 路由内钩子 */
-      beforeEnter: function(to,from,next){
+      beforeEnter: function(to:any,from:any,next:any){
         if(to.meta.title){
           document.title = to.meta.title
         }else{

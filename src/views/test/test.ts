@@ -1,6 +1,7 @@
 import  Component  from 'vue-class-component';
 import Vue from 'vue'
 import template from './test.vue'
+import Datatable from 'vue2-datatable-component'
 declare var bootbox:any;
 declare var $:any;
 

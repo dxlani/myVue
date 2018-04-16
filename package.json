@@ -18,7 +18,8 @@
     "vue": "^2.5.2",
     "vue-class-component": "^6.2.0",
     "vue-property-decorator": "^6.0.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue2-datatable-component": "^2.2.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -62,7 +63,6 @@
     "vue-resource": "^1.5.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
-    "vue-typescript": "^0.7.0",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",

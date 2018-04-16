@@ -1,5 +1,4 @@
 import  Component  from 'vue-class-component';
-import { VueComponent, Prop, Watch } from 'vue-typescript'
 import Vue from 'vue'
 import template from './demo.vue'
 declare var bootbox:any;
