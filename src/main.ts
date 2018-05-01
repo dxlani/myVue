@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import App from './App.ts'
 import router from './router'
 import VueResource from 'vue-resource'
-
-// import navbar from './common/nav.vue'
+import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import navbar from './components/nav'
+import header from './components/header'
+import footer from './components/footer'
 
 Vue.config.productionTip = false
 //  Vue.use(VueResource)
@@ -19,11 +19,16 @@ import "../node_modules/jquery-weui/dist/css/jquery-weui.min.css"
 import  '../node_modules/bootbox/bootbox.js'
 import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
 /* 全局注册组件 */
-// Vue.component('navbar',navbar);
+//  Vue.component('navbar',navbar);
+
+
 
 new Vue({
-  el: '#app',
+  el: '#app-main',
   router,
-  components: { App },
-  template: '<App/>'
+  components: {
+    'app-header':header,
+    'app-footer':footer,
+    'app-nav':navbar
+  }
 })

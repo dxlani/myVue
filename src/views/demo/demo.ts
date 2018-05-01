@@ -1,11 +1,10 @@
-import  Component  from 'vue-class-component';
-import Vue from 'vue'
-import template from './demo.vue'
-declare var bootbox:any;
+import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import './demo.css'  
+declare var bootbox:any;  
 declare var $:any;
 @Component({
   name:'demo',
-  mixins: [template]
+  template: require('./demo.html'),
 })
 export default class demo extends Vue {
   message:string="这是一个名片";

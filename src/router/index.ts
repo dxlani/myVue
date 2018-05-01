@@ -1,20 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from '../views/login/login.ts'
-import test from '../views/test/test.ts'
-import demo from '../views/demo/demo.ts'
 
+import login from '../views/login'
+import test from '../views/test'
+import demo from '../views/demo'
 
 Vue.use(Router)
 
 
-const router = new Router({
+ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'demo',
-      component: demo,
-      meta:{title: 'demo'},
+      redirect: {
+        name: 'demo'
+    }
     },
     {
       path: '/demo',
@@ -41,7 +41,7 @@ const router = new Router({
       path: '/test',
       name: 'test',
       /* 路由内钩子 */
-      component:test,
+      // component:test,
       // meta:{title: '测试'},
       // 需要登录才能进入的页面可以增加一个meta属性
       meta: { 
@@ -74,3 +74,5 @@ router.beforeEach((to, from, next) => {
 
 
 export default router
+
+

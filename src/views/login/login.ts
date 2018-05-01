@@ -1,12 +1,10 @@
-import  Component  from 'vue-class-component';
-import Vue from 'vue'
-import template from './login.vue'
+import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 declare var bootbox:any;
 declare var $:any;
 
 @Component({
   name:'login',
-  mixins: [template]
+  template: require('./login.html'),
 })
 export default class login extends Vue {
   message:string="hello vue";

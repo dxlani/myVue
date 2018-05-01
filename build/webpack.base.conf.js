@@ -39,10 +39,10 @@ module.exports = {
   // },
   module: {
     rules: [
-      // {
-      //   test:/\.html$/,
-      //   loader:'text-loader'
-      // },
+      {
+        test:/\.html$/,
+        loader:'text-loader'
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
