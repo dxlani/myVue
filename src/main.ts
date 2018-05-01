@@ -5,6 +5,7 @@ import navbar from './components/nav'
 import header from './components/header'
 import footer from './components/footer'
 
+import './main.css' /* 全局样式 */
 Vue.config.productionTip = false
 //  Vue.use(VueResource)
 // 引入CSS
@@ -24,7 +25,7 @@ import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
 
 
 new Vue({
-  el: '#app-main',
+  el: '#app',
   router,
   components: {
     'app-header':header,

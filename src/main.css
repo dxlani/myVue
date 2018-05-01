@@ -1,0 +1,6 @@
+ /* @import "~bootstrap/scss/bootstrap.scss"; */
+
+html, body, #app {
+    height: 100%;
+    background:#ddd;
+}

@@ -1,5 +1,4 @@
-// import  Component  from 'vue-class-component'
-// import Vue from 'vue'
+import './footer.css'
 // import template from './footer.vue'
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 declare var $:any;

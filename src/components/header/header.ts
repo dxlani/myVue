@@ -1,9 +1,11 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+ import './header.css'
+ //import template from './header.vue'
 declare var $:any;
 @Component({
     name:'app-header',
-    template: require('./header.html'),
-    // mixins: [template],
+     template: require('./header.html'),
+   // mixins: [template],
     // props:['title']
   })
 export default class header extends Vue {
