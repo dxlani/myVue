@@ -26,6 +26,18 @@ Vue.use(Router)
       path: '/login',
       name: 'login',
       component: login,
+      // children: [
+      //   {
+      //     path: '/',
+      //     name: 'demo',
+      //     component: demo
+      //   },
+      //   {
+      //     path: 'demo',
+      //     name: 'demo',
+      //     component: demo
+      //   } 
+      // ],
       meta:{title: '登录'},
       /* 路由内钩子 */
       beforeEnter: function(to:any,from:any,next:any){
@@ -44,16 +56,16 @@ Vue.use(Router)
       // component:test,
       // meta:{title: '测试'},
       // 需要登录才能进入的页面可以增加一个meta属性
-      meta: { 
-          requireAuth: false
-        },
+      // meta: { 
+      //     requireAuth: false
+      //   },
       //    component: (resolve) => {
-      //     require(['../components/test/test'], resolve)
+      //     require(['../views/test'], resolve)
       //  }
       
     }
   ],
-    mode:'history'   //去#号
+     mode:'history'   //去#号
 })
 
 //  判断是否需要登录权限 以及是否登录

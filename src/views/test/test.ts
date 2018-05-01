@@ -1,7 +1,5 @@
-// import  Component  from 'vue-class-component';
-// import Vue from 'vue'
-// import template from './test.vue'
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import './test.css'
 // import Datatable from 'vue2-datatable-component'
 declare var bootbox:any;
 declare var $:any;
