@@ -8,6 +8,8 @@ import navbar from './components/nav'
 import header from './components/header'
 import footer from './components/footer'
 
+import App from './App'
+
 import './main.css' /* 全局样式 */
 Vue.config.productionTip = false
 //  Vue.use(VueResource)
@@ -31,11 +33,12 @@ new Vue({
   el: '#app',
   router,
   store,
-   //components: { App }  vue1.0的写法
-  // render: h => h(App)    vue2.0的写法
-  components: {
-    'app-header':header,
-    'app-footer':footer,
-    'app-nav':navbar
-  }
+  //components: { App } /*  vue1.0的写法 */
+   render: h => h(App)   /*  vue2.0的写法 */
+
+  // components: {
+  //   'app-header':header,
+  //   'app-footer':footer,
+  //   'app-nav':navbar
+  // }
 })
