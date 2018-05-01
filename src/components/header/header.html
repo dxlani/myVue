@@ -1,6 +1,11 @@
 
   <div id="header">
-    <a class="fa fa-fw fa-dedent" @click="shousuo()"></a><span>"vue2.5"</span>
+    <p>
+        <a class="fa fa-fw fa-dedent" @click="shousuo()"></a><span>"vue2.5"</span>
+        <input type="text" v-model="inputTXT" > 
+        <button class="btn btn-success btn-lg" @click="setauthor()"><i class="fa fa-edit"></i>改footer作者名</button>
+    </p>
+   
  </div>
 
 

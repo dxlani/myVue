@@ -9,7 +9,7 @@ declare var $:any;
     // props:['title']
   })
 export default class header extends Vue {
-  
+  inputTXT:string="";
   // @Prop()
   // propA: number = 1
 
@@ -24,4 +24,8 @@ export default class header extends Vue {
 
   // @Watch('child')
   // onChildChanged(val: string, oldVal: string) { }
+  setauthor(){
+    this.$store.state.author = this.inputTXT;
+    console.log('aa',this.inputTXT,this.$store.state.author)
+  }
 }

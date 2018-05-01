@@ -8,4 +8,10 @@ declare var $:any;
   }) 
 export  default class footer extends Vue {
     title:string='Copyright 2018 DXL';
+
+   author:string=this.$store.state.author
+   
+   
+
+    
 }

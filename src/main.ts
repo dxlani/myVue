@@ -1,5 +1,8 @@
 import router from './router'
 import VueResource from 'vue-resource'
+import Vuex from 'vuex'
+import store from './vuex/store'
+
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import navbar from './components/nav'
 import header from './components/header'
@@ -27,6 +30,9 @@ import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
 new Vue({
   el: '#app',
   router,
+  store,
+   //components: { App }  vue1.0的写法
+  // render: h => h(App)    vue2.0的写法
   components: {
     'app-header':header,
     'app-footer':footer,
