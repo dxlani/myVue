@@ -1,5 +1,5 @@
 import router from './router'
-import VueResource from 'vue-resource'
+import VueResource from 'vue-resource'/* $http方法用到 */
 import Vuex from 'vuex'
 import store from './vuex/store'
 

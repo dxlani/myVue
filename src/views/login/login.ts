@@ -14,9 +14,9 @@ export default class login extends Vue {
     bootbox.alert(this.msg);
   }
   created (){
-    // this.$http.get('http://web.dingxiaolin.com/api/mail/view').then(data=>{
-    //   console.log('data',data);
-    // })
+    this.$http.get('https://jsonplaceholder.typicode.com/posts/1').then(data=>{
+      console.log('data',data);
+    })
   }
 
 }

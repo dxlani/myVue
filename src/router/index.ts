@@ -59,13 +59,13 @@ Vue.use(Router)
       // meta: { 
       //     requireAuth: false
       //   },
-      //    component: (resolve) => {
-      //     require(['../views/test'], resolve)
-      //  }
+         component: (resolve) => {
+          require(['../views/test'], resolve)
+       }
       
     }
   ],
-     mode:'history'   //去#号
+      mode:'history'   //去#号
 })
 
 //  判断是否需要登录权限 以及是否登录

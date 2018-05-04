@@ -2,9 +2,13 @@
   <div id="navbar">
       <h3>导航条</h3>
       <ul>
-          <li><a href="/demo">demo页</a></li>
+          <!-- <li><a href="/demo">demo页</a></li>
           <li><a href="/login">登录页</a></li>
-          <li><a href="/test">测试页</a></li>
+          <li><a href="/test">测试页</a></li> -->
+          <li><router-link to="/demo">demo页</router-link> </li>
+          <li><router-link to="/login">登录页</router-link></li>
+          <li><router-link to="/test">测试页</router-link></li>
+          <li><a  @click="toLogin()">方法跳转至登录页</a></router-link></li>
       </ul> 
 
   </div>
