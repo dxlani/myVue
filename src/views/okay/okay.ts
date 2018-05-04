@@ -12,8 +12,7 @@ declare var $:any;
 export default class okay extends Vue {
   message:string="这是okay页";
   id:string='1';
-  user={};
-
+  user={}; 
  
 
   // constructor () {
@@ -29,27 +28,24 @@ export default class okay extends Vue {
   //     console.log('err',err);
   //   })
   // }
-  
-  
+ 
   mounted () {
     // this.$nextTick(() => {
-      axios.get('https://jsonplaceholder.typicode.com/posts/'+this.id).then(res=>{
-        this.user=res.data;
-        console.log('data', this.user);
-      }).catch(err=>{
-        console.log('err',err);
-      })
+     this.getuser();
     // })
   }
 
-  getuser(){
-    axios.get(this.url).then(res=>{  /* 为啥url还是初始化的id */
+   getuser(){
+   axios.get(`https://jsonplaceholder.typicode.com/posts/${this.id}`).then(res=>{  /* 为啥url还是初始化的id */
       this.user=res.data;
       console.log('data', this.user,this.id);
     }).catch(err=>{
       console.log('err',err);
     })
 
+  }
+  async init(){
+    this.getuser;
   }
 
 }
