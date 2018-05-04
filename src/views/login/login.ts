@@ -1,7 +1,7 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 declare var bootbox:any;
 declare var $:any;
-
+import axios, { AxiosResponse } from 'axios'
 @Component({
   name:'login',
   template: require('./login.html'),
@@ -14,8 +14,10 @@ export default class login extends Vue {
     bootbox.alert(this.msg);
   }
   created (){
-    this.$http.get('https://jsonplaceholder.typicode.com/posts/1').then(data=>{
-      console.log('data',data);
+    axios.get('https://jsonplaceholder.typicode.com/posts/1').then(res=>{
+      console.log('data',res.data);
+    }).catch(err=>{
+      console.log('err',err);
     })
   }
 

@@ -21,6 +21,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node": "~9.4.0",
     "@types/webpack-env": "~1.13.5",
     "autoprefixer": "^7.1.2",
