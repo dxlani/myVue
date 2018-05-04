@@ -1,8 +1,5 @@
-import Router from 'vue-router'
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import './nav.css'
-Vue.use(Router);
-var router = new Router();
 declare var $:any;
 @Component({
     name:'app-nav',

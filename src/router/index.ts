@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import login from '../views/login'
-import test from '../views/test'
+ import okay from '../views/okay'
 import demo from '../views/demo'
 
 Vue.use(Router)
@@ -50,18 +50,18 @@ Vue.use(Router)
     }
     },
     {
-      path: '/test',
-      name: 'test',
+      path: '/okay',
+      name: 'okay',
       /* 路由内钩子 */
-      // component:test,
-      // meta:{title: '测试'},
+      component:okay,
+      meta:{title: '测试'},
       // 需要登录才能进入的页面可以增加一个meta属性
       // meta: { 
       //     requireAuth: false
       //   },
-         component: (resolve) => {
-          require(['../views/test'], resolve)
-       }
+      //    component: (resolve) => {
+      //     require(['../views/okay'], resolve)
+      //  }
       
     }
   ],
