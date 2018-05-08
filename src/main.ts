@@ -2,15 +2,15 @@ import router from './router'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+
 import navbar from './components/nav'
 import header from './components/header'
 import footer from './components/footer'
-
 import App from './App'
 
 import './main.css' /* 全局样式 */
 Vue.config.productionTip = false
-
+// Vue.prototype.axios = axios;
 
 
 // 引入CSS
@@ -35,10 +35,9 @@ new Vue({
   store,
   //components: { App } /*  vue1.0的写法 */
    render: h => h(App)   /*  vue2.0的写法 */
-
   // components: {
   //   'app-header':header,
   //   'app-footer':footer,
   //   'app-nav':navbar
   // }
-})
+}).$mount('#app');
