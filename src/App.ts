@@ -15,11 +15,6 @@ import './App.css'
    name: 'App',
   //  mixins: [template],
   template: require('./App.html'),
-  // data(){
-  //   return {
-  //   title:"this is a Vue demo"
-  //   }
-  // },
   components:{
     navbar,
     'app-header':header,
@@ -28,7 +23,8 @@ import './App.css'
 })
 
 export default class app extends Vue {
-  title:string="this is a Vue demo";
+  title:string="Vue2.5 demo";
+  footerTitle:string="Copyright 2018";
  
 }
 

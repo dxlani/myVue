@@ -6,7 +6,7 @@ declare var $:any;
     name:'app-header',
      template: require('./header.html'),
    // mixins: [template],
-    // props:['title']
+     props:['title']
   })
 export default class header extends Vue {
   inputTXT:string="";

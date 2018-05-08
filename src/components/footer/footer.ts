@@ -5,13 +5,53 @@ declare var $:any;
 @Component({
     name:'app-footer',
     template: require('./footer.html'),
+    // computed: {
+    //   author () {
+    //     return this.$store.state.author
+    //   }
+    // },
+     props:{title:String,year:String}
   }) 
 export  default class footer extends Vue {
-    title:string='Copyright 2018 DXL';
+  constructor() {
+    super();
+  }
 
-   author:string=this.$store.state.author
-   
-   
 
+  //computed 属性
+  get author () {
+    return  this.$store.state.author
+  }
+  //  @Prop({ default: '啦啦啦' })
+  //  title: string=""
+  
+  // @Emit()
+  // addToCount(n: number){ this.count += n }
+
+  // @Emit('reset')
+  // resetCount(){ this.count = 0 }
+
+  // @Inject() foo: string
+  // @Inject('bar') bar: string
+  // @Inject(s) baz: string
+
+  // @Model('change') checked: boolean
+
+  // @Prop()
+  // propA: number
+
+ 
+
+  // @Prop([String, Boolean])
+  // propC: string | boolean
+
+  // @Provide() foo = 'foo'
+  // @Provide('bar') baz = 'bar'
+
+  // @Watch('child')
+  // onChildChanged(val: string, oldVal: string) { }
+
+  // @Watch('person', { immediate: true, deep: true })
+  // onPersonChanged(val: Person, oldVal: Person) { }
     
 }

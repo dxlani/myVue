@@ -10,6 +10,7 @@ const AUTH_TOKEN="dingxiaolin"
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios 配置
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/';
+
 // build http header
 function buildHeader(): { [key: string]: string } {
     return {'Content-Type':'application/json;charset=UTF-8'}
@@ -51,10 +52,9 @@ export let ax = axios.create({
 // http request 拦截器
 ax.interceptors.request.use(
     config => {
-        config.headers.Authorization = `Bearer ${AUTH_TOKEN}`;
-        // if (store.state.token) {
-        //     config.headers.Authorization = `Bearer ${store.state.token}`;
-        // }
+        if (store.state.token) {
+            config.headers.Authorization = `Bearer ${store.state.token}`;
+        }
         return config;
     },
     err => {
