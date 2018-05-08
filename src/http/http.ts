@@ -9,9 +9,7 @@ import router from '../router'
 const AUTH_TOKEN="dingxiaolin"
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios 配置
-axios.defaults.timeout = 5000;
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/';
-
 // build http header
 function buildHeader(): { [key: string]: string } {
     return {'Content-Type':'application/json;charset=UTF-8'}
@@ -21,7 +19,7 @@ function buildHeader(): { [key: string]: string } {
 export let ax = axios.create({
     // baseURL: host,
     headers: buildHeader(),
-    timeout: 10000,
+    timeout: 5000,
     responseType: 'json',
     withCredentials: true, 
     transformRequest: [
