@@ -65,7 +65,8 @@ Vue.use(Router)
       
     }
   ],
-      mode:'history'   //去#号
+     // mode:'history'   //去#号 需要服务器支持
+      mode:'hash'   //默认
 })
 
 //  判断是否需要登录权限 以及是否登录
