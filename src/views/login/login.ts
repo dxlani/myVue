@@ -15,6 +15,7 @@ export default class login extends Vue {
   }
   list={};
   created (){
+    /* npm install --save-dev @types/axios 安装声明文件，结构声明就可以不用写啦 */
     axios.get('https://jsonplaceholder.typicode.com/posts/1').then(res=>{
       console.log('data',res.data);
       this.list=res.data;

@@ -77,7 +77,7 @@ router.beforeEach((to, from, next) => {
       } else {// 没登录则跳转到登录界面
          next({
            path: '/login',
-         query: {redirect: to.fullPath}
+           query: {redirect: to.fullPath}
         })
      }
     } else {
