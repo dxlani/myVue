@@ -10,9 +10,13 @@
           <li><router-link :to="{name:'okay'}">OK页(默认test子页)</router-link></li>
           <li><a  @click="toLogin()">方法跳转登录页</a></router-link></li>
           <li><router-link to="/okay/test">OK页+test子页</router-link></li>
-          <li><router-link :to="{name:'test'}">OK页+test子页</router-link></li>
+          <li><router-link :to="{path:'/okay/test'} ">OK页+test子页</router-link></li>
           <li><router-link to="/okay/other">OK页+other子页</router-link></li>
-          <li><router-link :to="{name:'other'}">OK页+other子页</router-link></li>
+          <li><router-link :to="{name:'other'}" >OK页+other子页</router-link></li>
+         <li>
+            <router-link :to="{ path: '/okay/other', query: { id: '12345' }}" >other带参数</router-link>
+         </li>  
+     
       </ul> 
 
   </div>

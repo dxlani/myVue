@@ -7,13 +7,17 @@ import axios, { AxiosResponse } from 'axios'
   template: require('./other.html'),
 })
 export default class other extends Vue {
-  msg: string = 'this is other';
+   msgs: string = '父组件调用了子组件的值';
   onClick (): void {
-    bootbox.alert(this.msg);
+    bootbox.alert(this.msgs);
   }
   list={};
   created (){
    
   }
-
+  // @Prop({ default: 'World' })
+  // private msg: string='this is other'
+ change(){
+    this.$emit('c1','changeMSG');
+  }
 }

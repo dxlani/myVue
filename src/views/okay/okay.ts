@@ -27,6 +27,7 @@ export default class okay extends Vue {
     userId:''
   }
   childMsg:string='';
+  childMsg1:string='';
 
   //   protected async created() {
   //     // api example
@@ -56,14 +57,16 @@ export default class okay extends Vue {
         .catch(err=>{console.log('err',err); })
 
         // this.$refs.otherComponent.onClick() /* 调用子组件方法 */
-         this.childMsg=this.$refs.otherComponent.msg  /* 取子组件的值 */
+         this.childMsg=this.$refs.otherComponent.msgs  /* 取子组件的值 */
   }
   // dynamic component
   $refs!: {
     otherComponent: other
   }
 
-
+   changeEvent(value){
+    this.childMsg1=value;
+  }
 
   /* post */
     postuser(){
