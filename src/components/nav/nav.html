@@ -2,13 +2,10 @@
   <div id="navbar">
       <h3>导航条</h3>
       <ul>
-          <!-- <li><a href="/demo">demo页</a></li>
-          <li><a href="/login">登录页</a></li>
-          <li><a href="/test">测试页</a></li> -->
           <li><router-link to="/demo">demo页</router-link> </li>
-          <li><router-link to="/login">登录页</router-link></li>
+          <li><router-link to="/hello">hello页</router-link></li>
           <li><router-link :to="{name:'okay'}">OK页(默认test子页)</router-link></li>
-          <li><a  @click="toLogin()">方法跳转登录页</a></router-link></li>
+          <li><a  @click="tohello()">方法跳转hello页</a></router-link></li>
           <li><router-link to="/okay/test">OK页+test子页</router-link></li>
           <li><router-link :to="{path:'/okay/test'} ">OK页+test子页</router-link></li>
           <li><router-link to="/okay/other">OK页+other子页</router-link></li>

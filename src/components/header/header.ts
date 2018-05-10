@@ -26,6 +26,7 @@ export default class header extends Vue {
   // onChildChanged(val: string, oldVal: string) { }
     setauthor(){
       this.$store.state.author = this.inputTXT;
+      this.$store.state.token = this.inputTXT;
       console.log('aa',this.inputTXT,this.$store.state.author)
     }
 

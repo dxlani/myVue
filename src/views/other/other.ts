@@ -18,6 +18,6 @@ export default class other extends Vue {
   // @Prop({ default: 'World' })
   // private msg: string='this is other'
  change(){
-    this.$emit('c1','changeMSG');
+  this.$emit('c1','changeMSG');
   }
 }

@@ -7,8 +7,17 @@ const store = new Vuex.Store({
   // 定义状态
   state: {
     author: 'Dingxiaolin',
-    token:'if is logined define this token'
-  }
+    token:'this need define a login token',
+    isLogin:''
+  },
+  mutations: {
+    SET_TOKEN: (state, data) => {
+      state.token;
+    }
+},
+actions: {     
+},
+
 })
 //if is logined define this token
 export default store

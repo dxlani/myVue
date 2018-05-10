@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import hello from '../views/hello'
 import login from '../views/login'
 import okay from '../views/okay'
 import demo from '../views/demo'
@@ -15,7 +16,7 @@ Vue.use(Router)
     {
       path: '/',
       redirect: {
-        name: 'demo'
+        name: 'login'
     }
     },
     {
@@ -28,7 +29,13 @@ Vue.use(Router)
       path: '/login',
       name: 'login',
       component: login,
-      meta:{title: '登录',requireAuth: true},
+      meta:{title: 'login',requireAuth: false},
+    },
+    {
+      path: '/hello',
+      name: 'hello',
+      component: hello,
+      meta:{title: 'hello',requireAuth: true},
     },
     {
       path: '/okay',
@@ -58,34 +65,26 @@ Vue.use(Router)
       mode:'hash'   //默认
 })
 
-
 router.beforeEach((to, from, next) => {
+  let token = sessionStorage.getItem('token');
+  store.commit('SET_TOKEN', token);
   //  判断是否需要登录权限 以及是否登录
      if (to.meta.requireAuth) {// 判断是否需要登录权限
-      if (store.state.token) {// 判断是否登录
-        console.log('1');
+      if (!store.state.token && to.path !== '/login') {// 判断是否登录
+        next({
+          path: '/login',
+       })
+       } else {
         next()
-      } else {
-        //  router.push('./login')
-         next({
-           path: '/login',
-           query: {redirect: to.fullPath}
-        })
-        console.log('2');
-        
-     }
-    } else {
-       next()
-      console.log('3');
-      
-    }
-      //路由钩子改标题
-    if(to.meta.title){
-      document.title = to.meta.title
-    }
+        }
+     } else {
+          next()
+        }
+          //路由钩子改标题
+        if(to.meta.title){
+          document.title = to.meta.title
+        }
    })
-
-
 
 export default router
 

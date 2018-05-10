@@ -21,9 +21,9 @@ export default class nav extends Vue {
 
   // @Watch('child')
   // onChildChanged(val: string, oldVal: string) { }
-  toLogin(){
+  tohello(){
     // router.push("./login")  /* 不行？ */
-    this.$router.push("./login")
+    this.$router.push("./hello")
     
   }
 }

@@ -3,14 +3,15 @@ declare var bootbox:any;
 declare var $:any;
 import axios, { AxiosResponse } from 'axios'
 @Component({
-  name:'login',
-  template: require('./login.html'),
+  name:'hello',
+  template: require('./hello.html'),
 })
-export default class login extends Vue {
-  
+export default class hello extends Vue {
+  message:string="hello vue";
+  msg: string = 'Hello! dingxiaolin';
   onClick (): void {
     $('.btn').html('dxl');
-    bootbox.alert("登录成功");
+    bootbox.alert(this.msg);
   }
   list={};
   created (){
