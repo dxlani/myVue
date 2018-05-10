@@ -29,22 +29,12 @@ Vue.use(Router)
       name: 'login',
       component: login,
       meta:{title: '登录',requireAuth: true},
-      /* 路由内钩子 */
-      beforeEnter: function(to:any,from:any,next:any){
-        if(to.meta.title){
-          document.title = to.meta.title
-        }else{
-            document.title = '路由'
-        }
-        next()
-    }
     },
     {
       path: '/okay',
       name: 'okay',
-      /* 路由内钩子 */
       component:okay,
-      meta:{title: '测试',requireAuth: true},
+      meta:{title: 'okay',requireAuth: true},
       // 需要登录才能进入的页面可以增加一个meta属性
       children: [
         {
@@ -69,12 +59,13 @@ Vue.use(Router)
       mode:'hash'   //默认
 })
 
-//  判断是否需要登录权限 以及是否登录
+
 router.beforeEach((to, from, next) => {
+  //  判断是否需要登录权限 以及是否登录
      if (to.meta.requireAuth) {// 判断是否需要登录权限
       if (store.state.token) {// 判断是否登录
         next()
-      } else {// 没登录则跳转到登录界面
+      } else {
         // router.push('./login')
          next({
            path: '/login',
@@ -84,7 +75,12 @@ router.beforeEach((to, from, next) => {
     } else {
       next()
     }
+      //路由钩子改标题
+    if(to.meta.title){
+      document.title = to.meta.title
+    }
    })
+
 
 
 export default router
