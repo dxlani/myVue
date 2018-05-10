@@ -2,13 +2,15 @@ import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-p
 import axios, { AxiosResponse } from 'axios'
 import './okay.css'  
 import api from '../../api/api'
+import other from '../other'
 //import template from './okay.vue'
 declare var bootbox:any;  
 declare var $:any;
 @Component({
   name:'okay',
- template: require('./okay.html'),
-   // mixins: [template],
+  template: require('./okay.html'),
+  // mixins: [template],
+  components:{other}
 })
 export default class okay extends Vue {
   constructor() {
@@ -24,7 +26,7 @@ export default class okay extends Vue {
     body: '',
     userId:''
   }
-  uuid:string='';
+  childMsg:string='';
 
   //   protected async created() {
   //     // api example
@@ -52,7 +54,17 @@ export default class okay extends Vue {
         console.log('get', res);
         this.user=res[0];})
         .catch(err=>{console.log('err',err); })
+
+        // this.$refs.otherComponent.onClick() /* 调用子组件方法 */
+         this.childMsg=this.$refs.otherComponent.msg  /* 取子组件的值 */
   }
+  // dynamic component
+  $refs!: {
+    otherComponent: other
+  }
+
+
+
   /* post */
     postuser(){
       api.postPackage((this.post_data))

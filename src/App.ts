@@ -34,12 +34,6 @@ import './App.css'
 export default class app extends Vue {
   title:string="Vue2.5 demo";
   footerTitle:string="Copyright 2018";
-  bb:string="";
-  inputC(inputContent){
-    this.bb=inputContent;
-  }
-
-
 
 }
 

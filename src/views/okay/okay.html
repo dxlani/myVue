@@ -16,8 +16,12 @@
     <hr>
     <h3>userId:{{users.userId}} title:{{users.title}} body:{{users.body}}</h3>
     <router-view></router-view>
-   
-    </ul>
+      <div style="border:1px solid #000">
+        <h4>子组件传值给父组件</h4>
+        <other ref="otherComponent"/> <!-- 子组件 -->
+        <p>父组件从子组件拿值：{{childMsg}}</p>
+      </div>
+    
   </div>
 
  <!-- <style src="./demo.css" lang="css" scoped></style> -->

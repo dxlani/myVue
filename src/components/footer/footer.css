@@ -1,12 +1,15 @@
 #footer{
-    background:lightgreen;
-    padding:10px;
-    position:fixed;
-    bottom:0;
-    width:90%;
-    
-}
-p{
-    color:#000;
+    background: lightgreen;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    margin-left: 170px;
+    left: 0;
     text-align: center;
+}
+span{
+    color:#000;
+   
 }
