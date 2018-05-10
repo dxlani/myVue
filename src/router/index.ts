@@ -37,11 +37,10 @@ Vue.use(Router)
       meta:{title: 'okay',requireAuth: true},
       // 需要登录才能进入的页面可以增加一个meta属性
       children: [
-        {
-          path: '/',
-          name: 'test',
-          component: test
-        },
+        // {
+        //   path: '/',
+        //   component: test
+        // },
         {
           path: 'other',
           name: 'other',
@@ -64,16 +63,21 @@ router.beforeEach((to, from, next) => {
   //  判断是否需要登录权限 以及是否登录
      if (to.meta.requireAuth) {// 判断是否需要登录权限
       if (store.state.token) {// 判断是否登录
+        console.log('1');
         next()
       } else {
-        // router.push('./login')
+        //  router.push('./login')
          next({
            path: '/login',
            query: {redirect: to.fullPath}
         })
+        console.log('2');
+        
      }
     } else {
-      next()
+       next()
+      console.log('3');
+      
     }
       //路由钩子改标题
     if(to.meta.title){
