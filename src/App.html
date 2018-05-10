@@ -1,8 +1,9 @@
 
   <div id="app">
      <navbar></navbar>
-     <div class="marginLeft">
+     <div class="marginLeft" @cc="inputC">
       <app-header v-bind:title="title"></app-header> 
+      <p>{{bb}}</p>
       <router-view ></router-view>
       <app-footer :title="footerTitle"></app-footer> 
      </div>

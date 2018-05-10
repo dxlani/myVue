@@ -10,5 +10,5 @@ const store = new Vuex.Store({
     token:'if is logined define this token'
   }
 })
-
+//if is logined define this token
 export default store

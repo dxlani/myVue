@@ -6,7 +6,7 @@ declare var $:any;
     name:'app-header',
      template: require('./header.html'),
    // mixins: [template],
-     props:['title']
+     props:['title'],
   })
 export default class header extends Vue {
   inputTXT:string="";
@@ -28,4 +28,7 @@ export default class header extends Vue {
     this.$store.state.author = this.inputTXT;
     console.log('aa',this.inputTXT,this.$store.state.author)
   }
+  @Emit('cc')
+  addToCount(inputContent: string){ inputContent=this.inputTXT }
+ 
 }

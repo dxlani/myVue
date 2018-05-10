@@ -19,12 +19,27 @@ import './App.css'
     navbar,
     'app-header':header,
     'app-footer':footer,
-  }
+  },
+  // watch: {
+  //   // 防止跳过登录直接进系统
+  //   $route (newVal, oldVal) {
+  //     if (!this.$store.state.token && newVal.path !== '/login') {
+  //       this.$router.push('/login')
+  //       alert('请登录')
+  //     }
+  //   }
+  // }
 })
 
 export default class app extends Vue {
   title:string="Vue2.5 demo";
   footerTitle:string="Copyright 2018";
- 
+  bb:string="";
+  inputC(inputContent){
+    this.bb=inputContent;
+  }
+
+
+
 }
 
