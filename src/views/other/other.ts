@@ -9,7 +9,6 @@ import axios, { AxiosResponse } from 'axios'
 export default class other extends Vue {
   msg: string = 'this is other';
   onClick (): void {
-    $('.btn').html('dxl');
     bootbox.alert(this.msg);
   }
   list={};
