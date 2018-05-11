@@ -1,27 +1,11 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import axios, { AxiosResponse } from 'axios'
 import api from '../../api/api'
+import './login.css'
 
 declare var bootbox:any;
 declare var $:any;
 declare function require(string): string;
-const imgbj = require('../../assets/img/login-bj.png');
-
-import '../../assets/img/login-yun.png';
-import '../../assets/img/login-bj.png';
-import '../../assets/img/group.png';
-import '../../assets/img/group2.png';
-import '../../assets/img/group4.png';
-import '../../assets/img/login.png';
-// import '../../assets/favicon.ico';
-
-import '../../assets/img/login-wenzi.png';
-import '../../assets/img/huojian.png';
-import '../../assets/img/login-yonghu.png';
-import '../../assets/img/login-mima.png';
-import '../../assets/img/login-erweima.png';
-import '../../assets/img/login-bottomimg.png';
-
 
 @Component({
   name:'login',
@@ -48,7 +32,7 @@ export default class login extends Vue {
     this.authError="";
      //设置背景图片
     $('body').css({
-        'backgroundImage': `url(${imgbj})`,
+        'backgroundImage': "url('/static/img/login-bj.png')",
         'backgroundAttachment': 'fixed',
         'backgroundSize': 'cover'
     });
