@@ -1,4 +1,4 @@
-//内容区域
+
 #login .content{
     width: 100%;
     height: 100%;
@@ -6,7 +6,7 @@
     position: relative;
     z-index: 999;
 }
-// 左边图片
+/* // 左边图片 */
 .login-yun{
     position: absolute;
     width: 100%;
@@ -21,14 +21,14 @@
 }
 
 
-// 右边登录区域
+/* // 右边登录区域 */
 .login-area{
     float: right;
     position: relative;
     width: 407px;
     margin-top: 11%;
     height: 419px;
-    background: url(../../img/login-top.png) no-repeat top;
+    background: url(/static/img/login-top.png) no-repeat top;
     border-radius: 10px;
     box-shadow: 1px;
     background-color: #ffffff;
@@ -135,7 +135,7 @@
     display: block;
     width: 24px;
     height: 24px;
-    background: url('../../img/login-weixin.png') no-repeat;
+    background: url('/static/img/login-weixin.png') no-repeat;
     float: right;
     margin: 22px auto;
 }
