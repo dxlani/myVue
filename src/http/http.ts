@@ -18,7 +18,7 @@ function buildHeader(): { [key: string]: string } {
 export let ax = axios.create({
     // baseURL: host,
     headers: buildHeader(),
-    timeout: 5000,
+    timeout: 10000,
     responseType: 'json',
     withCredentials: true, 
     transformRequest: [

@@ -27,6 +27,7 @@ export default class login extends Vue {
   /**是否显示更新说明 */
   isShow: any;
   mounted(){
+    
     this.versionCsp = "V18-0312";
     // this.wilddogUrl = dataService().wilddogUrl;
     this.authError="";
@@ -73,7 +74,6 @@ login(){
   
     
 };
-
 
 
 getInquiryList(){
