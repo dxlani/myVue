@@ -1,0 +1,113 @@
+<div id="login" class="container">
+  <div class="content">
+      <div class="login-img is-show">
+          <img id="login_yun" src="../../assets/img/login-yun.png" alt="yun" class="login-yun">
+          <img id="login_wenzi" src="/src/assets/img/login-wenzi.png" alt="wenzi" class="login-wenzi">
+      </div>
+      <div class="login-fly is-show">
+          <div class="tmsTop_w wow fadeInUp animated" data-wow-delay="0.7s">
+          <img id="login_huojian" src="./src/assets/img/huojian.png">                   
+          </div>
+      </div>
+      <!-- 登录 -->
+      <div class="login-area">
+          <div class="login-title">
+              <h3>飓风物流客户服务平台</h3> 
+          </div>
+          <div class="login-panel">
+              <div class="yhdl">
+              <p>用户登录</p>
+              </div>
+              <div class="login-username">
+              <img id="login_yonghu" src="/src/assets/img/login-yonghu.png" alt="" class="username-icon">
+              <input id="login_userName" class="login-username-ipt login-ipt" v-model="user.userName" type="text" placeholder="请输入用户名" name="userName" autofocus="autofocus"/>
+              </div>
+              <div class="login-password">
+              <img id="login_mima" src="/src/assets/img/login-mima.png" alt="" class="password-icon">
+              <input id="login_password" class="login-password-ipt login-ipt" v-model="user.password"  type="password" placeholder="请输入密码" name="password"/>
+              </div>
+              <div class="login-btn">
+              <span @click="login" id="login_loginBtn" v-bind:class="{'disabled':user.userName==''||user.password==''}">登 录</span>
+              </div>
+          </div>
+          <div class="login-wechat">
+              <p>关注微信公众号</p>
+              <span class="login-QRCode"></span>
+              <!--<img src="/src/assets/img/login-weixin.png" alt="">-->
+              <div class="login-QRCodeImg">
+                  <img id="login_erweima" src="/src/assets/img/login-erweima.png" alt="">
+              </div>
+          </div>
+          <div class="login-bottomimg">
+              <img id="login_bottom" src="/src/assets/img/login-bottomimg.png" alt="">
+          </div>
+      </div>
+  </div>
+  <!-- 底部 -->
+  <div class="login-footer">
+      <div>Copyright © 2017, All Rights Reserved Powered By Danyang Hurricane Logistics CO.,LTD.</div>
+  </div>
+  
+  <!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+              <h4 class="modal-title text-center" id="myModalLabel">货准达用户协议</h4>
+          </div>
+          <div class="modal-body" style="height:600px;overflow:auto;">
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;货准达（下文简称CSP）由丹阳飓风物流股份有限公司（下文简称飓风股份）自主研发运营，提供物流过程管控、智能数据分析等服务。用户方使用货准达服务平台前，应仔细阅读并接受本协议。一经登录即视为用户方接受本协议。</p>
+                  <p><b>一、服务条款</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、飓风股份有权在必要时修改本服务条款，服务条款一旦发生变动，将会在相关页面上公布修改后的服务条款。如果不同意所改动的内容，用户应主动停止使用CSP物流服务平台。如果用户继续使用，则视为接受服务条款的变动。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、飓风股份与货准达用户之间为业务合作关系。用户为飓风股份提供物流需求后，飓风股份根据需求为用户提供物流服务和基础数据的分析支持。</p>
+                  <p><b>二、用户账号及管理</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、CSP账户所有权归飓风股份所有，用户完成开户（及飓风股份确立合作关系，由飓风股份为用户开启CSP账户）后获得CSP账户的使用权。CSP用户名为用户单位简称（例：江苏XX有限公司，用户名为：江苏XX），初始密码为“666666”。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、CSP账户仅能由飓风股份确定的特定用户使用，用户不得将账号、密码转让或出借给第三方企业或个人。如用户发现其账号遭他人非法使用，应当立即通知飓风股份。因用户管理账户不当或第三人恶意盗取账户情况，飓风股份不承担任何责任</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、飓风股份承诺未获得用户明确授权不对外公开用户账号信息。</p>
+                  <p><b>三、业务数据保密</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、CSP用户为飓风股份提供原始需求数据（以下简称需求数据），用户对需求数据享有所有权。飓风股份对用户需求数据承担严格保密义务，不得将用户提供原始需求数据展示、出售给第三方企业或个人。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、飓风股份对除用户原始需求数据外的其他数据，享有排他性质的所有权。CSP用户应当将飓风股份提供数据信息作为商业机密进行保护。用户CSP数据信息应当仅为用户指定业务相关人知晓。若因为用户疏忽或怠于行使保密义务导致信息泄露的，用户应当承担数据泄露给飓风股份带来的损失。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、飓风股份承诺对用户需求、发生、成本、质量等相关数据进行保密，未经用户授权许可不得在公开场合（在场人数超过500人或有地级市媒体在场视为公开场合）、与用户方存在竞争或供求关系方在场时进行展示。</p>
+                  <p><b>四、数据分析成果独立</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、飓风股份有权对用户内部业务需求、发生、成本、质量等指标进行筛选分析，形成可表达用户供求、成本关系的数据分析结果。该数据分析结果由飓风公司与用户共同享有所有权。数据分析结果不因用户方要求进行删除，用户方有权要求飓风股份分享与自身业务相关的数据分析结果。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、飓风股份有权对同类用户业务需求、发生、成本、质量等指标进行筛选分析，形成可表达特定产业供求、成本关系的数据分析成果。对于该数据分析成果飓风股份享有独立的所有权。数据分析成果不因用户方要求进行删除，飓风股份保证数据分析成果仅作为内部业务分析使用，用户方无权取得该部分成果。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、用户方不得将获取的数据结果交给与飓风股份存在业务竞争或业务合作关系的第三方企业或个人。</p>
+                  <p><b>五、结果送达</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、CSP用户有权获取与自身相关的业务数据信息，但由于数据信息的敏感性，用户需以书面函件的形式发起需求。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、飓风股份以PDF形式发送至用户指定邮箱，用户应当保证该邮箱为指定业务相关人使用。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、PDF数据信息应当作为飓风股份商业机密进行保护。</p>
+                  <p><b>六、服务免责条款</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、用户未及时修改初始密码或自身原因导致用户需求信息泄露的，用户方不得要求飓风股份承担违约责任。上述行为给飓风股份造成损失的，用户方应当承担飓风股份的全部损失（包括直接与间接损失）。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、飓风股份应司法、行政机关要求或命令，免于遵守本协议规定的保密义务。</p>
+                  <p><b>七、协议终止</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、飓风股份与用户方终止合作后，本协议不自动终止。数据提供方有权要求数据存储方永久删除与自身业务相关的数据信息。</p>
+                  <p><b>八、其他</b></p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本协议的订立、执行和解释及争议的解决均应适用中华人民共和国法律。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、如双方就本协议内容或其执行发生任何争议，双方应尽量友好协商解决；协商不成时，任何一方均可向飓风股份所在地的人民法院提起诉讼。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、飓风股份未行使或执行本服务协议任何权利或规定，不构成对前述权利或权利之放弃。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、如本协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，本协议的其余条款仍应有效并且有约束力。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请您在发现任何违反本服务协议以及其他任何单项服务的服务条款、飓风股份各类公告之情形时，通知飓风股份。您可以通过如下联络方式同飓风股份取得联系∶</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;江苏省镇江市丹阳市丹北镇金润大道旁珠峰路1号</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;飓风股份大数据中心</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：0511-86339868</p>
+          </div>
+          <div class="modal-footer">
+                  <div style="margin:0 auto;">
+                                  <button type="button" class="btn btn-default" @click="disagree()">不同意</button>
+                                  <button type="button" class="btn btn-primary" @click="agree()">同意并继续</button>
+                  </div>
+          </div>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+</div>
+
+
+
+
+
+
+
+
+

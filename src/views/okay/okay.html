@@ -1,0 +1,31 @@
+ <div  id="okay">
+    <h3>{{ message }}</h3>
+    <h3>id:<input type="text" v-model="id"></h3>
+    <p><button class="btn btn-primary btn-md" @click="getuser()">GET获取新用户</button></p>
+    <h3>id:{{user.id}} </h3>
+    <h3>title:{{user.title}}</h3>
+    <h3>body:{{user.body}}</h3>
+    <p><button class="btn btn-primary btn-md" @click="postuser()">POST获取新用户</button>
+    <button class="btn btn-primary btn-md" @click="putuser()">PUT上传新用户</button>
+    <button class="btn btn-primary btn-md" @click="patchuser()">PATCH更新新用户</button>
+    <button class="btn btn-primary btn-md" @click="deleteuser()">DELETE删除新用户</button></p>
+    <hr>
+    <h3>userId:<input type="text" v-model="post_data.userId"></h3>
+    <h3>title:<input type="text" v-model="post_data.title"></h3>
+    <h3>body:<input type="text" v-model="post_data.body"></h3>
+    <hr>
+    <h3>userId:{{users.userId}} title:{{users.title}} body:{{users.body}}</h3>
+    <router-view></router-view>
+      <div style="border:1px solid #000">
+        <h4>父子组件传值</h4>
+        <other ref="otherComponent" @c1="changeEvent"></other> <!-- 子组件 -->
+        <p>父组件从子组件拿值：{{childMsg}}</p>
+        <p>子组件传值给父组件：{{childMsg1}}</p>
+      </div>
+    
+  </div>
+
+ <!-- <style src="./demo.css" lang="css" scoped></style> -->
+
+
+

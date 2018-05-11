@@ -1,0 +1,20 @@
+ <div  id="demo">
+    <h3>{{ message }}</h3>
+    <ul>
+      <li v-for="user in users" >
+      <p  > 姓名：{{user.name}}</p>
+      <p >email：{{user.email}}</p> 
+      <p >phone:{{user.phone}}</p> 
+      <p  >
+        <span>{{user.address.city}}</span>
+        <span>{{user.address.street}}</span>
+        <span>{{user.address.suite}}</span>
+      </p> 
+      </li>
+    </ul>
+  </div>
+
+ <!-- <style src="./demo.css" lang="css" scoped></style> -->
+
+
+

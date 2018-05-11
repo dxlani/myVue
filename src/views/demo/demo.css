@@ -19,3 +19,7 @@ li {
     border:1px solid #222;
     margin:10px;
 }
+
+ #demo p{
+    font-size:12px;
+}

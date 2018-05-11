@@ -1,20 +1,19 @@
-import  Component  from 'vue-class-component';
-import Vue from 'vue'
-import template from './test.vue'
-import Datatable from 'vue2-datatable-component'
+import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 declare var bootbox:any;
 declare var $:any;
-
+import axios, { AxiosResponse } from 'axios'
 @Component({
   name:'test',
-  mixins: [template]
+  template: require('./test.html'),
 })
 export default class test extends Vue {
-  message:string="这是第二个模板页面";
-  msg: string = 'Hello! test'
-
+  msg: string = 'this is test';
   onClick (): void {
-    $('.btn').html('test');
-   bootbox.alert(this.msg);
+    bootbox.alert(this.msg);
   }
+  list={};
+  created (){
+   
+  }
+
 }
