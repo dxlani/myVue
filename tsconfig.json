@@ -10,7 +10,7 @@
     // 允许编译javascript文件
     "allowJs": true,
     "module": "es2015",
-    "target": "es5",
+    "target": "esnext",
     // 以严格模式解析
     "strict": true,
     // 如何处理模块
@@ -21,7 +21,9 @@
     "noImplicitAny": false,
     "lib": [
       "es2017",
-      "dom"
+      "dom",
+      "es2015",
+      "es2015.promise"
     ],
     // 是否包含可以用于 debug 的 sourceMap
     "sourceMap": true,

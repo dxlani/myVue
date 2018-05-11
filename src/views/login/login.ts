@@ -5,7 +5,6 @@ import './login.scss'
 
 declare var bootbox:any;
 declare var $:any;
-declare function require(string): string;
 
 @Component({
   name:'login',
@@ -44,8 +43,7 @@ login(){
         return;
     }
     var loginData;
-    api.User.login
-    api.User.login(this.user).then((res:any)=>{
+    api.User.login(this.user).then(res=>{
         console.log('res',res);
         let result=res;
         // if(!(res&&res.jwtToken)){
@@ -88,7 +86,7 @@ agree(){
     /* api */
     api.User.contract({}).then((res)=>{
         console.log('res2',res)
-    if((<any>res).success){
+    if(res.success){
         $('#myModal').modal('hide');
         window.sessionStorage.setItem("isContract",'true');
         this.$router.push('/app/home');
