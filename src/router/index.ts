@@ -8,6 +8,7 @@ import demo from '../views/demo'
 import test from '../views/test'
 import other from '../views/other'
 import store from '../vuex/store'
+import app from '../components/App'
 Vue.use(Router)
 
 
@@ -20,45 +21,54 @@ Vue.use(Router)
     }
     },
     {
-      path: '/demo',
-      name: 'demo',
-      component: demo,
-      meta:{title: 'demo',requireAuth: true},
-    },
-    {
       path: '/login',
       name: 'login',
       component: login,
       meta:{title: 'login',requireAuth: false},
     },
     {
-      path: '/hello',
-      name: 'hello',
-      component: hello,
-      meta:{title: 'hello',requireAuth: true},
-    },
-    {
-      path: '/okay',
-      name: 'okay',
-      component:okay,
-      meta:{title: 'okay',requireAuth: true},
-      // 需要登录才能进入的页面可以增加一个meta属性
-      children: [
-        // {
-        //   path: '/',
-        //   component: test
-        // },
+      path:'/app',
+      name: 'app',
+      component: app,
+      meta:{title: '飓风物流PC端',requireAuth: true},
+      children:[
         {
-          path: 'other',
-          name: 'other',
-          component: other
+          path: '',
+          name: 'hello',
+          component: hello,
         },
         {
-          path: 'test',
-          name: 'test',
-          component: test
-        } 
-      ],
+          path: 'demo',
+          name: 'demo',
+          component: demo,
+        },
+        {
+          path: 'hello',
+          name: 'hello',
+          component: hello,
+        },
+        {
+          path: 'okay/',
+          name: 'okay',
+          component:okay,
+          children: [
+            {
+              path: '',
+              component: test
+            },
+            {
+              path: 'other',
+              name: 'other',
+              component: other
+            },
+            {
+              path: 'test',
+              name: 'test',
+              component: test
+            } 
+          ],
+        }
+      ]
     }
   ],
      // mode:'history'   //去#号 需要服务器支持

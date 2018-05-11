@@ -6,7 +6,7 @@ import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-p
 import navbar from './components/nav'
 import header from './components/header'
 import footer from './components/footer'
-import App from './App'
+// import App from './App'
 
 import './main.css' /* 全局样式 */
 Vue.config.productionTip = false
@@ -30,14 +30,14 @@ import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
 
 
 new Vue({
-  el: '#app',
+  el: '#App',
   router,
   store,
   //components: { App } /*  vue1.0的写法 */
-   render: h => h(App)   /*  vue2.0的写法 */
+   //render: h => h(App)   /*  vue2.0的写法 */
   // components: {
   //   'app-header':header,
   //   'app-footer':footer,
   //   'app-nav':navbar
   // }
-}).$mount('#app');
+}).$mount('#App');

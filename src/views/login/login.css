@@ -1,3 +1,218 @@
-#login {
+//内容区域
+#login .content{
+    width: 100%;
+    height: 100%;
+    margin: 8% auto;
+    position: relative;
+    z-index: 999;
+}
+// 左边图片
+.login-yun{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.login-wenzi{
+    z-index: 2;
+    position: absolute;
+    margin-top: 27%;
+    margin-left: 5%;
+    width: 100%;
+}
 
+
+// 右边登录区域
+.login-area{
+    float: right;
+    position: relative;
+    width: 407px;
+    margin-top: 11%;
+    height: 419px;
+    background: url(../../img/login-top.png) no-repeat top;
+    border-radius: 10px;
+    box-shadow: 1px;
+    background-color: #ffffff;
+}
+.login-title {
+    text-align: center;
+    font-family: 微软雅黑;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    width: 100%;
+}
+
+.yhdl{
+    font-size: 18px;
+    font-family: 微软雅黑;
+    color: #3678d5;
+    margin: 0px 0px -7px 0px;;
+}
+
+.login-panel{
+    margin: 35px 29px 28px 30px;
+    width: 370px;
+    z-index: 1;
+}
+.disabled{
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+}
+.login-panel input:-webkit-autofill{
+    -webkit-box-shadow:0 0 0 1000px #fff inset !important
+}
+
+.login-username ,.login-password{
+    border: 1px  solid  #f0f2f9;
+    margin-top: 21px;
+    width: 350px;    
+    height: auto;
+    border-radius: 4px;
+    z-index: 2;
+    display: inline-block;
+}
+
+.username-icon{
+    width: 20px;
+    height: 20px;
+    background-position: 50% 50%;
+    margin: auto 10px;
+}
+
+.password-icon{
+    width: 20px;
+    height: 20px;
+    background-position: 50% 50%;
+    margin: auto 10px;
+
+}
+
+.login-ipt{
+    height: 50px;
+    border: none;
+    width: 293px;
+    padding-left: 10px;
+    border-left: 1px #f0f2f9 solid;
+}
+.login-btn{
+    cursor: pointer;
+    width: 351px;
+    background-color: #84c352;
+    border:1px solid #75b907;
+    border-radius: 5px;
+    height: 50px;
+    margin-top: 25px;
+}
+
+.login-btn span{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    color: #fff;
+    padding-top: 10px;
+}
+
+.login-wechat{
+    height: 58px;
+    position: relative;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    display: inline-block;
+    width: 407px;
+    bottom: 0px;
+    background-color: #f4f8fc;
+    z-index: 1;
+}
+
+.login-QRCode{
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('../../img/login-weixin.png') no-repeat;
+    float: right;
+    margin: 22px auto;
+}
+
+.login-wechat p{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    color: #666;
+    line-height: 58px;
+    text-align: right;
+    padding-right: 30px;
+    float: right;
+}
+
+.login-wechat div{
+    position: relative;
+    display: none;
+    left: 218px;
+    top: 35px;
+}
+
+.login-wechat:hover div{
+    display: block;
+}
+
+.login-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    text-align: center;
+    background-color: #4990d1;
+    z-index: 0;
+}
+
+.login-img{
+    position: relative;
+    width: 43%;
+}
+
+.login-fly{
+    width: 90px;
+    height: 149px;
+    position: relative;
+    float: left;
+    margin-left: 45%;
+    margin-top: 8%;
+}
+.login-footer div{
+    color: #fff;
+    font-size: 14px;
+    font-family: Arial;
+    margin: 18px auto;
+}
+.login-bottomimg{
+    position: absolute;
+    top: 400px;
+    right: 7px;
+}
+
+@media (max-width:1366px){
+    #login .content {
+        margin: 1% auto;
+    }
+    .login-area{
+        margin-top: 6.5%;
+        margin-right: 2%
+    }
+}
+
+@media (max-width:1024px){
+    .is-show{
+        display: none;
+    }
+    .login-area{
+        margin-top: 7.5%;
+        margin-right: 29.2%;
+    }
 }

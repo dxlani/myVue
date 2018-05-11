@@ -8,8 +8,6 @@ import router from '../router'
 
 const AUTH_TOKEN="dingxiaolin"
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-// axios 配置
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/';
 
 // build http header
 function buildHeader(): { [key: string]: string } {
