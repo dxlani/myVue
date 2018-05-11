@@ -1,7 +1,7 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import axios, { AxiosResponse } from 'axios'
 import api from '../../api/api'
-import './login.css'
+import './login.scss'
 
 declare var bootbox:any;
 declare var $:any;
@@ -12,6 +12,7 @@ declare function require(string): string;
   template: require('./login.html'),
 })
 export default class login extends Vue {
+
   authError=""
   user={
       weChatOpenid:"",
@@ -46,17 +47,16 @@ login(){
     api.User.login
     api.User.login(this.user).then((res)=>{
         console.log('res',res);
-        let result=res;
         // if(!(res&&res.jwtToken)){
         //     bootbox.alert('请输入正确的用户名和密码');
         //     return;
         // }
-        loginData=result;
+        loginData=res;
         window.sessionStorage.setItem("logined","yes");
         var userInfo=JSON.stringify(loginData);
         window.sessionStorage.setItem("userInfo",userInfo);
         window.sessionStorage.setItem("isContract",loginData.isContract);
-        window.sessionStorage.setItem("userName",result.userName);
+        // window.sessionStorage.setItem("userName",res.userName);
 
             if(loginData.isContract){
                this.$router.push('/app/home');
@@ -87,11 +87,11 @@ agree(){
     /* api */
     api.User.contract({}).then((res)=>{
         console.log('res2',res)
-    // if(res.success){
-    //     $('#myModal').modal('hide');
-    //     window.sessionStorage.setItem("isContract",'true');
-    //     this.$router.push('/app/home');
-    // }
+    if((<any>res).success){
+        $('#myModal').modal('hide');
+        window.sessionStorage.setItem("isContract",'true');
+        this.$router.push('/app/home');
+    }
     })
 }
 
@@ -105,6 +105,4 @@ agree(){
         this.$router.push('/login');
     }
 }
-
-  
 

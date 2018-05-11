@@ -8,7 +8,7 @@ import header from './components/header'
 import footer from './components/footer'
 // import App from './App'
 
-import './main.css' /* 全局样式 */
+import './main.scss' /* 全局样式 */
 Vue.config.productionTip = false
 // Vue.prototype.axios = axios;
 
