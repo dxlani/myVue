@@ -46,16 +46,17 @@ login(){
     api.User.login
     api.User.login(this.user).then((res)=>{
         console.log('res',res);
+        let result=res;
         // if(!(res&&res.jwtToken)){
         //     bootbox.alert('请输入正确的用户名和密码');
         //     return;
         // }
-        loginData=res;
+        loginData=result;
         window.sessionStorage.setItem("logined","yes");
         var userInfo=JSON.stringify(loginData);
         window.sessionStorage.setItem("userInfo",userInfo);
         window.sessionStorage.setItem("isContract",loginData.isContract);
-        // window.sessionStorage.setItem("userName",res.userName);
+        window.sessionStorage.setItem("userName",result.userName);
 
             if(loginData.isContract){
                this.$router.push('/app/home');
