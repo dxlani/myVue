@@ -5,7 +5,7 @@
 import axios from 'axios'
 import store from '../vuex/store'
 import router from '../router'
-
+declare var bootbox:any;
 const AUTH_TOKEN="dingxiaolin"
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
@@ -62,18 +62,22 @@ ax.interceptors.request.use(
 // http response 拦截器
 ax.interceptors.response.use(
     response => {
-        return response;
+        if(!response.data.success){
+        bootbox.alert(response.data.errorMessage)
+        }
+            return response.data;
+        
     },
     error => {
         if (error.response) {
             switch (error.response.status) {
-                case 401:
-                    // 401 清除token信息并跳转到登录页面
-                    // store.commit(types.LOGOUT);
-                    router.replace({
-                        path: 'login',
-                        query: {redirect: router.currentRoute.fullPath}
-                    })
+                // case 401:
+                //     // 401 清除token信息并跳转到登录页面
+                //     // store.commit(types.LOGOUT);
+                //     router.replace({
+                //         path: 'login',
+                //         query: {redirect: router.currentRoute.fullPath}
+                //     })
             }
         }
         // console.log(JSON.stringify(error));//console : Error: Request failed with status code 402
