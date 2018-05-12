@@ -32,6 +32,7 @@ module.exports = {
         // 'jquery': path.resolve(__dirname, '../src/assets/libs/jquery/jquery.min'),
         // 如果使用NPM安装的jQuery
          'jquery': 'jquery',
+         'images':resolve('static/img')
     }
   },
   // externals:{

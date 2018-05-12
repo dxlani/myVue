@@ -1,9 +1,7 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
-import axios, { AxiosResponse } from 'axios'
+// import axios, { AxiosResponse } from 'axios'
 import api from '../../api/api'
 import './login.scss'
-// import '../../assets/img/login-wenzi.png'
- import '../../assets/img/login-yun.png'
 declare var bootbox:any;
 declare var $:any;
 
@@ -34,7 +32,7 @@ export default class login extends Vue {
     this.authError="";
      //设置背景图片
     $('body').css({
-        'backgroundImage': "url('/static/img/login-bj.png')",
+        'backgroundImage': "url('static/img/login-bj.png')",
         'backgroundAttachment': 'fixed',
         'backgroundSize': 'cover'
     });
