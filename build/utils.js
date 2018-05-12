@@ -18,6 +18,7 @@ exports.cssLoaders = function (options) {
   const cssLoader = {
     loader: 'css-loader',
     options: {
+      //minimize: process.env.NODE_ENV === 'production', //生成环境下压缩文件
       sourceMap: options.sourceMap
     }
   }

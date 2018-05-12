@@ -103,7 +103,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      bootbox:'bootbox'
+      bootbox:'bootbox',
+      jquery: 'jquery',
+      Vue: 'vue'
   })
    ]
 }

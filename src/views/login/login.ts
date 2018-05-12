@@ -2,7 +2,8 @@ import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-p
 import axios, { AxiosResponse } from 'axios'
 import api from '../../api/api'
 import './login.scss'
-
+// import '../../assets/img/login-wenzi.png'
+ import '../../assets/img/login-yun.png'
 declare var bootbox:any;
 declare var $:any;
 
