@@ -1,2 +1,2 @@
-import home from './home'
-export default home
+import HomeComponent from './home'
+export default HomeComponent

@@ -1,5 +1,6 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import './home.scss'
+import api from '../../api/api'
 var echarts = require('echarts');
 
 
@@ -80,7 +81,7 @@ export default class HomeComponent extends Vue {
         this.orderData = [];
 
         /**询价单数据 */
-        dataService().Work.getInquiryCount().then((res)=>{
+        api.Work.getInquiryCount({}).then((res)=>{
             this.inquiryTotal = res.inquiry;
             this.carrierQuotation = res.quote;
             this.carrierQuotedprice = res.successfulQuote;
@@ -104,7 +105,7 @@ export default class HomeComponent extends Vue {
             }
         });
         /**询价单图表 */
-        dataService().Work.getInquiryStatus().then((res)=>{
+        api.Work.getInquiryStatus({}).then((res)=>{
             res.inquiryStatusProportion.forEach((itemS) => {
                 if(itemS.proportion != 0){
                     this.inquiryStatusData.push({
@@ -125,7 +126,7 @@ export default class HomeComponent extends Vue {
         });
 
         /**订单数据 */
-        dataService().Work.getOrderCount().then((res)=>{
+        api.Work.getOrderCount({}).then((res)=>{
             this.orderTotal = res.order;
             this.alreadyReach = res.tchbd;
             this.alreadyDelivery = res.ship;
@@ -151,7 +152,7 @@ export default class HomeComponent extends Vue {
         });
 
         /**订单图表 */
-        dataService().Work.getOrderStatus().then((res)=>{
+        api.Work.getOrderStatus({}).then((res)=>{
             res.item1.forEach((itemS) => {
                 this.orderStatusData.push({
                     name:itemS.stateName,
