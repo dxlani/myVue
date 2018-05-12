@@ -2,6 +2,7 @@ import router from './router'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import * as echarts from "echarts"
 
 import navbar from './components/nav'
 import header from './components/header'

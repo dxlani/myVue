@@ -1,0 +1,123 @@
+<div id="home">
+    <div class="bg-light lter b-b wrapper-xs">
+        <h1 class="m-n font-thin h3">工作台数据</h1>
+    </div>
+    <div id="inquiryComponent">
+        <div class="container">
+                <div class="row" class="statistics">
+                        <div class="col-xs-3">
+                                <div class="inquiryPic"><img class="round" src="./img/pic2.png"></div>
+                                <div class="tx">
+                                        <span class="name">本月总询价量</span>
+                                        <P class="inquiryNums">{{inquiryTotal}}</P>
+                                        <div class="huanbi"><div id="inquiryArrow"></div>&nbsp;环比上月<span id="inquiryUp">增长：</span><span id="inquiryDown">减少：</span><span id="inquiryCompare">{{inquiryPercent}}笔</span></div>
+                                </div>
+                        </div>
+                        <div class="col-xs-9">
+                                <div class="col-xs-2">
+                                    <span class="name">承运商报价中</span>
+                                    <P class="inquiryNums">{{carrierQuotation}}</P>
+                                </div>
+                                <div class="col-xs-2">
+                                        <span class="name">承运商已报价</span>
+                                        <P class="inquiryNums">{{carrierQuotedprice}}</P>
+                                </div>
+                                <div class="col-xs-2">
+                                        <span class="name">承运商已中标</span>
+                                        <P class="inquiryNums">{{carrierWonbid}}</P>
+                                </div>
+                                <div class="col-xs-2">
+                                        <span class="name">中标待定</span>
+                                        <P class="inquiryNums">{{undecidedBid}}</P>
+                                </div>
+                                <div class="col-xs-2">
+                                        <span class="name">询价终结</span>
+                                        <P class="inquiryNums">{{inquiryEnd}}</P>
+                                </div>
+                                <div class="col-xs-2">
+                                        <span class="name">无承运商中标</span>
+                                        <P class="inquiryNums">{{noBid}}</P>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        
+        <div class="charts">
+                <!-- 询价单状态饼图 -->
+                <div class="stateComponent">
+                        <div class="title"><span class="titleText">本月询价单状态构成</span></div>
+                        <!-- 饼图 -->
+                        <div id="inquiryPie" class="pieChart"></div>
+                </div>
+
+                <!-- 历史询价单数量折线图 -->
+                <div class="historyNum">
+                        <div class="title"><span class="titleText">历史询价单数量</span><span class="name2">累计发布询价单</span><span id="inquiryNums2">{{inquiryReleaseTotal}}</span></div>
+                        <div  id="inquiryLine" class="lineChart"></div>
+                </div>
+        </div>
+    </div>
+    <div id="orderComponent">
+            <div class="container">
+                    <div class="row" class="statistics">
+                            <div class="col-xs-4">
+                                    <div class="col-xs-9" id="orderTotal">
+                                            <div class="orderPic"><img class="round" src="./img/pic4.png"></div>
+                                            <div class="tx2">
+                                                <span class="name">本月总订单量</span>
+                                                <P  class="orderNums">{{orderTotal}}</P>
+                                                <div class="huanbi"><div id="orderArrow"></div>&nbsp;环比上月<span id="orderUp">增长：</span><span id="orderDown">减少：</span><span id="inquiryCompare">{{orderPercent}}笔</span></div>
+                                                <!-- <div class="huanbi"><div id="orderArrow"></div>&nbsp;<span id="orderCompare">{{orderPercent}}</span>&nbsp;&nbsp;环比上月</div> -->
+                                            </div>
+                                    </div>
+                                    <div class="col-xs-3" class="orderItem">
+                                            <span class="name">货已送达</span>
+                                            <P class="orderNums">{{alreadyReach}}</P>
+                                    </div>
+                            </div>
+                            <div class="col-xs-8">
+                                    <div class="col-xs-2" class="orderItem">
+                                            <span class="name">已发货</span>
+                                            <P class="orderNums">{{alreadyDelivery}}</P>
+                                    </div>
+                                    <div class="col-xs-2" class="orderItem">
+                                            <span class="name">待发货</span>
+                                            <P class="orderNums">{{pendDelivery}}</P>
+                                    </div>
+                                    <div class="col-xs-2" class="orderItem">
+                                            <span class="name" class="orderItem">已派车</span>
+                                            <P class="orderNums">{{alreadySendcar}}</P>
+                                    </div>
+                                    <div class="col-xs-2" class="orderItem">
+                                            <span class="name">派车中</span>
+                                            <P class="orderNums">{{sendingCar}}</P>
+                                    </div>
+                                    <div class="col-xs-2" class="orderItem">
+                                            <span class="name">订单终结</span>
+                                            <P class="orderNums">{{orderEnd}}</P>
+                                    </div>
+                                    <div class="col-xs-2" class="orderItem">
+                                            <span class="name">订单处理</span>
+                                            <P class="orderNums">{{orderHandle}}</P>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="charts">
+                    <!-- 第二部分 -->
+                    <div class="stateComponent">
+                            <div class="title"><span class="titleText">本月订单状态构成</span></div>
+                            <!-- 饼图 -->
+                            <div id="orderPie" class="pieChart"></div>
+                    </div>
+
+
+                    <!-- 第三部分 -->
+                    <div class="historyNum">
+                            <div class="title"><span class="titleText">历史订单数量</span> <span class="name3">累计发布订单</span><span id="orderNums2">{{orderReleaseTotal}}</span></div>
+                            <div id="orderLine" class="lineChart"></div>
+                    </div>
+            </div>
+    </div>
+    <updatetip-component></updatetip-component>
+</div>
