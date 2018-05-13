@@ -16,7 +16,7 @@ export default {
         return Put('posts/1',data)
     },
     deletePackage(data) {
-        return Delete('posts/1')
+        return Delete('posts/1',{})
     },
 /* ================================ */
    /* login */

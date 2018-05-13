@@ -103,7 +103,6 @@ ax.interceptors.response.use(
                 .get(url, {
                     params: data 
                 })
-                .then(res=>res)
                 .then(res => {
                     return res.data
                 })
@@ -150,9 +149,9 @@ ax.interceptors.response.use(
                 })
         }
     /* DELETE */
-    export function Delete<T>(url): Promise<any> {
+    export function Delete<T>(url,data): Promise<any> {
         return ax
-            .delete(url)
+            .delete(url,data)
             .then(res => {
                 return res.data
             })

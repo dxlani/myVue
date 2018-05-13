@@ -12,6 +12,7 @@ import store from '../vuex/store'
 import login from '../views/login'
 import app from '../components/app'
 import HomeComponent from '../views/home'
+import InquiryReleaseManageComponent from '../views/inquiryReleaseManage'
 declare var $:any;
 Vue.use(Router)
 
@@ -42,6 +43,10 @@ Vue.use(Router)
         {
           path: 'home',
           component: HomeComponent,
+        },
+        {
+          path: 'inquiry/inquiryReleaseManage',
+          component: InquiryReleaseManageComponent,
         },
         {
           path: 'demo',

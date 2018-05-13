@@ -1,9 +1,7 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
-import router from 'vue-router'
 // import axios, { AxiosResponse } from 'axios'
-import api from '../../api/api'
+import api_login from '../../api/api_login'
 import './login.scss'
-import VueRouter from 'vue-router';
 declare var bootbox:any;
 declare var $:any;
 
@@ -40,7 +38,7 @@ login(){
         return;
     }
     var loginData;
-    api.User.login(this.user).then(res=>{
+    api_login.User.login(this.user).then(res=>{
         console.log('res',res);
         let result=res;
         // if(!(res&&res.jwtToken)){
@@ -80,7 +78,7 @@ repo:string = 'https://github.com/itsFrank/vue-typescript';
 /* 协议 同意 */
 agree(){
     /* api */
-    api.User.contract({}).then((res)=>{
+    api_login.User.contract().then((res)=>{
         console.log('res2',res)
     if(res.success){
         $('#myModal').modal('hide');

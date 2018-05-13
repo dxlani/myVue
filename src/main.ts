@@ -12,7 +12,7 @@ import footer from './components/footer'
 import './main.scss' /* 全局样式 */
 Vue.config.productionTip = false
 // Vue.prototype.axios = axios;
-
+declare var $:any;
 
 // 引入CSS
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
@@ -25,6 +25,11 @@ import "../node_modules/jquery-weui/dist/css/jquery-weui.min.css"
 //引入js
 import  '../node_modules/bootbox/bootbox.js'
 import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+import  "../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"
+import  "../node_modules/jquery-weui/dist/js/jquery-weui.min.js"
+import  "../node_modules/ali-oss/dist/aliyun-oss-sdk.min.js"
+import  "../node_modules/bootstrap-table/dist/bootstrap-table.js"
+
 /* 全局注册组件 */
 //  Vue.component('navbar',navbar);
 
@@ -44,3 +49,4 @@ new Vue({
 }).$mount('#App');
 
 
+$('#datetimepicker').datetimepicker({lang:'ch'});
