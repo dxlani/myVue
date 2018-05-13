@@ -2,14 +2,13 @@
   "name": "my-project",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "",
+  "author": "dingxiaolin",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
-    "clean": "rm -rf dist",
-    "cleanpack": "rimraf node_modules"
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "axios": "~0.17.1",

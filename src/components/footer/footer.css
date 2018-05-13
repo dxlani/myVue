@@ -1,15 +1,13 @@
-/* #footer{
-    background: lightgreen;
-    padding: 10px;
+#footer {
     position: fixed;
-    bottom: 0;
     width: 100%;
-    right: 0;
-    margin-left: 170px;
-    left: 0;
-    text-align: center;
+    bottom: 0px;
 }
-span{
-    color:#000;
-   
-} */
+
+#footer small {
+    display: block;
+    padding: 15px;
+    background: #edf1f2;
+    text-align: center;
+    padding-right:200px
+}

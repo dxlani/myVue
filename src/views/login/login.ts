@@ -1,7 +1,9 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import router from 'vue-router'
 // import axios, { AxiosResponse } from 'axios'
 import api from '../../api/api'
 import './login.scss'
+import VueRouter from 'vue-router';
 declare var bootbox:any;
 declare var $:any;
 
@@ -30,12 +32,7 @@ export default class login extends Vue {
     this.versionCsp = "V18-0312";
     // this.wilddogUrl = dataService().wilddogUrl;
     this.authError="";
-     //设置背景图片
-    $('body').css({
-        'backgroundImage': "url('static/img/login-bj.png')",
-        'backgroundAttachment': 'fixed',
-        'backgroundSize': 'cover'
-    });
+
   
 }
 login(){

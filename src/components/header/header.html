@@ -1,12 +1,39 @@
+<div>
+  <div class="navbar-header bg-black ">
+  <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+      <i class="glyphicon glyphicon-cog"></i>
+  </button>
 
-  <div id="header">
-    <p>
-        <a class="fa fa-fw fa-dedent" @click="shousuo()"></a><span>{{title}}</span>
-        <input type="text" v-model="inputTXT" > 
-        <button class="btn btn-success btn-lg" @click="setauthor()"><i class="fa fa-edit"></i>改footer作者名</button>
-    </p>
-   
- </div>
+  <a href="#/app" class="navbar-brand text-lt">
+      <span class="hidden-folded m-l-xs ng-bind">{{app.name}}</span>
+  </a>
+</div>
+<div>
+  <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only" style="height:50px!important">
+      <div class="nav navbar-nav hidden-xs hid">
+          <a class="btn no-shadow navbar-btn" @click="changeDedentIcon()">
+              <i class="fa fa-fw fa-dedent" v-show="!arrow"></i>
+              <i class="fa fa-fw fa-indent" v-show="arrow"></i>
+          </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown" dropdown>
+              <a href class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                      <img src="/static/img/a0.jpg" alt="...">
+                      <i class="on md b-white bottom"></i>
+                  </span>
+                  <span class="hidden-sm hidden-md">江苏沃得农业机械有限公司</span>
+              </a>
+              <ul class="dropdown-menu animated fadeInRight w">
+                  <li>
+                      <a >注销</a>
+                  </li>
+              </ul>
 
+          </li>
+      </ul>
+  </div>
+</div>
 
-
+</div>

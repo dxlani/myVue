@@ -1,5 +1,5 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
-import './nav.css'
+import './nav.scss'
 declare var $:any;
 @Component({
     name:'app-nav',
@@ -7,23 +7,10 @@ declare var $:any;
   })
 export default class nav extends Vue {
   
-  // @Prop()
-  // propA: number = 1
-
-  // @Prop({ default: 'default value' })
-  // propB: string
-
-  // @Prop([String, Boolean])
-  // propC: string | boolean
-
-  // @Prop({ type: null })
-  // propD: any
-
-  // @Watch('child')
-  // onChildChanged(val: string, oldVal: string) { }
-  tohello(){
-    // router.push("./login")  /* 不行？ */
-    this.$router.push("./hello")
-    
-  }
+   mounted(){
+    $('.auto').click(function(e){
+      $(this).parent().toggleClass('active');
+      $(this).parent().siblings(".active").removeClass('active');
+    })
+   }
 }

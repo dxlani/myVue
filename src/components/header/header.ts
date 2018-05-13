@@ -9,25 +9,20 @@ declare var $:any;
      props:['title'],
   })
 export default class header extends Vue {
-  inputTXT:string="";
-  // @Prop()
-  // propA: number = 1
-
-  // @Prop({ default: 'default value' })
-  // propB: string
-
-  // @Prop([String, Boolean])
-  // propC: string | boolean
-
-  // @Prop({ type: null })
-  // propD: any
-
-  // @Watch('child')
-  // onChildChanged(val: string, oldVal: string) { }
-    setauthor(){
-      this.$store.state.author = this.inputTXT;
-      this.$store.state.token = this.inputTXT;
-      console.log('aa',this.inputTXT,this.$store.state.author)
+  app={
+    name:"飓风物流客户服务平台"
+};
+arrow:boolean=true;
+  mounted(){
+   this.changeDedentIcon();
+  }
+  changeDedentIcon(){
+    if(this.arrow){
+      this.arrow=false;
+      $('.body').removeClass('app-aside-folded');
+    }else if(!this.arrow){
+      this.arrow=true;
+      $('.body').addClass('app-aside-folded');
     }
-
+  }
 }

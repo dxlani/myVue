@@ -10,9 +10,9 @@ import other from '../views/other'
 import store from '../vuex/store'
 
 import login from '../views/login'
-import app from '../components/App'
+import app from '../components/app'
 import HomeComponent from '../views/home'
-
+declare var $:any;
 Vue.use(Router)
 
 
@@ -102,6 +102,15 @@ router.beforeEach((to, from, next) => {
           //路由钩子改标题
         if(to.meta.title){
           document.title = to.meta.title
+          next()
+        }
+        //登录页加背景图
+        if(to.path=="/login"){
+         $('body').addClass('body-bg')
+         next()
+        }else{
+          $('body').removeClass('body-bg')
+          next()
         }
    })
 

@@ -3096,7 +3096,7 @@
     .bg-black .nav>li:focus>a,
     .bg-black .nav>li.active>a {
         color: #ffffff;
-        background-color: #131e26;
+        background-color: #16232d;
     }
     
     .bg-black .nav>li>a {
@@ -5208,4 +5208,47 @@
   
     .dropdown-menu{
         min-width: 161px!important;
+    }
+
+/* vue2.5 */
+    .navbar{
+        border:none!important;
+    }
+
+    .app-aside {
+        position: fixed;
+        background-color: #1c2b36;
+        color: #869fb1;
+        z-index: 10;
+        top: 50px;
+        bottom: 0px;
+        left: 0px;
+    }
+
+    .body-bg {
+        background: url("/static/img/login-bj.png");
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .navbar-brand{
+        font-size:16px!important;
+        height: 60px;
+        line-height: 30px;
+    }
+
+    .box-shadow {
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05)!important;
+    }
+    
+    .navbar-brand {
+        line-height: 30px!important;
+    }
+
+    .navbar-collapse a{
+        color:#141719;
+        font-size:14px;
+    }
+    .navbar-collapse a:hover a{
+        color:#141719;
     }
