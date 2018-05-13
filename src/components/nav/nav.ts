@@ -11,6 +11,8 @@ export default class nav extends Vue {
     $('.auto').click(function(e){
       $(this).parent().toggleClass('active');
       $(this).parent().siblings(".active").removeClass('active');
+      $(this).siblings('.nav-sub').children('li').eq(0).addClass('active');
+      $(this).parent().siblings().children('.nav-sub').children('li').removeClass('active');
     })
    }
 }
