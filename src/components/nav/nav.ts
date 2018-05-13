@@ -15,4 +15,5 @@ export default class nav extends Vue {
       $(this).parent().siblings().children('.nav-sub').children('li').removeClass('active');
     })
    }
+
 }

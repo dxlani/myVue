@@ -26,39 +26,33 @@ Vue.use(Router)
     },
     {
       path: '/login',
-      name: 'login',
+      name:'login',
       component: login,
       meta:{title: 'login',requireAuth: false},
     },
     {
       path:'/app',
-      name: 'app',
       component: app,
       meta:{title: '飓风物流PC端',requireAuth: true},
       children:[
         {
           path: '',
-          name: 'HomeComponent',
           component: HomeComponent,
         },
         {
           path: 'home',
-          name: 'HomeComponent',
           component: HomeComponent,
         },
         {
           path: 'demo',
-          name: 'demo',
           component: demo,
         },
         {
           path: 'hello',
-          name: 'hello',
           component: hello,
         },
         {
           path: 'okay',
-          name: 'okay',
           component:okay,
           children: [
             {
@@ -67,12 +61,10 @@ Vue.use(Router)
             },
             {
               path: 'other',
-              name: 'other',
               component: other
             },
             {
               path: 'test',
-              name: 'test',
               component: test
             } 
           ],
