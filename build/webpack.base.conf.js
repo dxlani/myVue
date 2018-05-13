@@ -106,7 +106,8 @@ module.exports = {
       jQuery: "jquery",
       bootbox:'bootbox',
       jquery: 'jquery',
-      Vue: 'vue'
+      Vue: 'vue',
+      datatimepicker: 'datatimepicker',
   })
    ]
 }

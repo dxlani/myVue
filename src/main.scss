@@ -1,3 +1,14 @@
+// 引入CSS
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+@import "../node_modules/bootstrap-table/dist/bootstrap-table.min.css";
+@import "../node_modules/jquery-datetimepicker/jquery.datetimepicker.css";
+@import "../node_modules/jquery-weui/dist/css/jquery-weui.min.css";
+
+
+
+
+    
     html {
        background-color: #f0f3f4;
         overflow-y: hidden
@@ -5232,7 +5243,7 @@
     }
 
     .navbar-brand{
-        font-size:16px!important;
+        font-size:15px!important;
         height: 60px;
         line-height: 30px;
     }
@@ -5242,7 +5253,7 @@
     }
     
     .navbar-brand {
-        line-height: 30px!important;
+        line-height: 60px!important;
     }
 
     .navbar-collapse a{
