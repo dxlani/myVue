@@ -3,7 +3,7 @@ import api_cspInquiry from '../../api/api_cspInquiry'
 declare var bootstrapTable: any;
 declare var $: any;
 declare var bootbox: any;
-// var datetimepicker = require('jquery-datetimepicker');
+
 @Component({
     template: require('./inquiryReleaseManage.html')
 })
@@ -179,6 +179,7 @@ export default class InquiryReleaseManageComponent extends Vue {
     }
     //查询调用
     queryUsers(){
+        bootbox.alert('sssssssssssssssssssss')
         this.seeks=true;
         this.skip = 0;
         this.currentPage = 1;
