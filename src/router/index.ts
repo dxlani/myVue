@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import hello from '../views/hello'
-
 import okay from '../views/okay'
 import demo from '../views/demo'
 import test from '../views/test'
 import other from '../views/other'
+
 import store from '../vuex/store'
 
 import login from '../views/login'
@@ -34,15 +34,16 @@ Vue.use(Router)
     {
       path:'/app',
       component: app,
-      meta:{title: '飓风物流PC端',requireAuth: true},
       children:[
         {
           path: '',
           component: HomeComponent,
+          // meta:{title: 'HomeComponent',requireAuth: true},
         },
         {
           path: 'home',
           component: HomeComponent,
+          // meta:{title: 'HomeComponent',requireAuth: true},
         },
         {
           path: 'inquiry/inquiryReleaseManage',
@@ -83,31 +84,24 @@ Vue.use(Router)
 
 router.beforeEach((to, from, next) => {
   let token = sessionStorage.getItem('token');
-  store.commit('SET_TOKEN', token);
-  //  判断是否需要登录权限 以及是否登录
-     if (to.meta.requireAuth) {// 判断是否需要登录权限
-      if (!store.state.token && to.path !== '/login') {// 判断是否登录
-        next({
-          path: '/login',
-       })
-       } else {
-        next()
-        }
-     } else {
+  store.state.token=token;
+        //判断是否需要登录权限 以及是否登录
+        if (!store.state.token && to.path !== '/login') {// 判断是否登录
+          next({
+            path: '/login',
+        })
+        } else {
           next()
-        }
+          }
           //路由钩子改标题
         if(to.meta.title){
           document.title = to.meta.title
-          next()
         }
         //登录页加背景图
         if(to.path=="/login"){
          $('body').addClass('body-bg')
-         next()
         }else{
           $('body').removeClass('body-bg')
-          next()
         }
    })
 

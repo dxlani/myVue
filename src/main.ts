@@ -13,15 +13,13 @@ Vue.config.productionTip = false
 // Vue.prototype.axios = axios;
 declare var $:any;
 
+var datetimepicker = require('jquery-datetimepicker');
+var bootstrap = require('bootstrap');
+var bootstrapTable = require('bootstrap-table');
+var jqueryweui = require('jqueryweui');
 
 //引入js
-import   "../node_modules/jquery/dist/jquery.js"
-import  '../node_modules/bootbox/bootbox.js'
-import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
-import  "../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"
-import  "../node_modules/jquery-weui/dist/js/jquery-weui.min.js"
 import  "../node_modules/ali-oss/dist/aliyun-oss-sdk.min.js"
-import  "../node_modules/bootstrap-table/dist/bootstrap-table.js"
 
 /* 全局注册组件 */
 //  Vue.component('navbar',navbar);

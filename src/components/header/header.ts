@@ -1,12 +1,10 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
- import './header.css'
- //import template from './header.vue'
+import './header.css'
 declare var $:any;
 @Component({
     name:'app-header',
      template: require('./header.html'),
-   // mixins: [template],
-     props:['title'],
+    //  props:['title'],
   })
 export default class header extends Vue {
   app={
@@ -24,5 +22,12 @@ arrow:boolean=true;
       this.arrow=true;
       $('.body').addClass('app-aside-folded');
     }
+  }
+  logoOut(){
+    window.sessionStorage.clear();
+    this.$router.push('./login');
+  }
+  get userName(){
+      return  sessionStorage.getItem('userName');
   }
 }

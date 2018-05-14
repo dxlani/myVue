@@ -15,8 +15,9 @@ function buildHeader(): { [key: string]: string } {
 }
 
 
+
 export let ax = axios.create({
-    // baseURL: host,
+    baseURL: host(),
     headers: buildHeader(),
     timeout: 10000,
     responseType: 'json',
@@ -47,10 +48,20 @@ export let ax = axios.create({
     },
 })
 
+//ax.defaults.baseURL='http://192.168.1.107:777/csp/';
+//ax.defaults.baseURL = "http://192.168.1.205:5000/csp/"
+function host():string{
+    if(window.location.hostname == "localhost"){
+        return "http://192.168.1.205:5000/csp/"
+    }else {
+        return "/csp/"
+    }
+}
+
+
 // http request 拦截器
 ax.interceptors.request.use(
     config => {
-        console.log('aaaaaaaaaa',store.state.token)
         if (store.state.token) {
             config.headers.Authorization = `Bearer ${store.state.token}`;
         }

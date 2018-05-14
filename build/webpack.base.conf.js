@@ -28,11 +28,9 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-        // webpack 使用 jQuery，如果是自行下载的
-        // 'jquery': path.resolve(__dirname, '../src/assets/libs/jquery/jquery.min'),
-        // 如果使用NPM安装的jQuery
         'jquery': 'jquery',
-        'datetimepicker':path.resolve(__dirname, "../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"),
+        'jquery-datetimepicker':path.resolve(__dirname, "../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"),
+        'jqueryweui':path.resolve(__dirname, "../node_modules/jquery-weui/dist/js/jquery-weui.min.js"),
     }
   },
   // externals:{
@@ -107,7 +105,6 @@ module.exports = {
       jQuery: "jquery",
       bootbox:'bootbox',
       Vue: 'vue',
-      datetimepicker: 'datatimepicker',
   })
    ]
 }

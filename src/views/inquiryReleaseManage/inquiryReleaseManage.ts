@@ -1,11 +1,11 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import api_cspInquiry from '../../api/api_cspInquiry'
-declare var bootstrapTable: any;
 declare var $: any;
 declare var bootbox: any;
-// var datetimepicker = require('jquery-datetimepicker');
+import pagination from '../../components/pagination'
 @Component({
-    template: require('./inquiryReleaseManage.html')
+    template: require('./inquiryReleaseManage.html'),
+    components:{pagination}
 })
 export default class InquiryReleaseManageComponent extends Vue {
     Records=1;
