@@ -7,12 +7,12 @@ import './pagination.scss'
 @Component({
     name:'pagination',
     template: require('./pagination.html'),
+    props:["total"]
 })
 
 export default class pagination extends Vue {
-    
-// @Prop
-  total = 0;
+  
+  total:number;
   paginationPageSizes= [10, 20, 30];
   pageSize:number=0;
   pageIndex:number = 1;  
@@ -94,7 +94,7 @@ reset(){
   
   onPageIndexChange(pageIndex: number) {
     this.getTotalPage();
-    // this.$dispatch('pageIndexChange', {pageIndex:(pageIndex-1)*this.pageSize,pageSize:Number(this.pageSize),currentPage:pageIndex});
+    this.$emit('pageIndexChange', {pageIndex:(pageIndex-1)*Number(this.pageSize),pageSize:Number(this.pageSize),currentPage:pageIndex});
   }
 
   //获取总页数

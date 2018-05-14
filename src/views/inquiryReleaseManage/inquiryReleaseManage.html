@@ -50,17 +50,15 @@
                 <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
                 <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
                     <button id="inquiryReleaseManage_query" name="inquiryReleaseManage_query" @click="queryUsers()" class="btn btn-sm btn-default btn-addon">
-                            <i class="glyphicon glyphicon-search" v-show="!seeks"></i>
-                            <i v-show="seeks">
-                                <b class="fa fa-spinner no-bordr"  v-bind:class="{'fa-spin':seeks}"></b>
-                            </i>
-                            <span v-show="!seeks">查询</span>
-                            <span v-show="seeks">查询中...</span>
-                        </button>
+                        <i class="glyphicon glyphicon-search" v-show="!seeks"></i>
+                        <i v-show="seeks">
+                            <b class="fa fa-spinner no-bordr"  v-bind:class="{'fa-spin':seeks}"></b>
+                        </i>
+                        <span v-show="!seeks">查询</span>
+                        <span v-show="seeks">查询中...</span>
+                    </button>
                 </div>
             </div>
-    
-    
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -69,7 +67,7 @@
             <div class="line line-xs pull-in"></div>
             <div class="table-responsive">
                 <table id="inquiryReleaseManage_table" class="table table-hover" data-events="actionEvents" style="min-width:1000px;"></table>
-                <pagination :total="Records" v-on:pageIndexChange="onPageIndexChange($event)"></pagination>
+                <pagination :total="Records" @pageIndexChange="pageChange"></pagination>
             </div>
             <div class="panel-body">
                 <div class="form-group">
