@@ -81,7 +81,8 @@ export default class HomeComponent extends Vue {
         this.orderData = [];
 
         /**询价单数据 */
-        api_work.Work.getInquiryCount({}).then((res)=>{
+        api_work.Work.getInquiryCount().then((res)=>{
+            console.log("resss",res);
             this.inquiryTotal = res.inquiry;
             this.carrierQuotation = res.quote;
             this.carrierQuotedprice = res.successfulQuote;
@@ -105,7 +106,7 @@ export default class HomeComponent extends Vue {
             }
         });
         /**询价单图表 */
-        api_work.Work.getInquiryStatus({}).then((res)=>{
+        api_work.Work.getInquiryStatus().then((res)=>{
             res.inquiryStatusProportion.forEach((itemS) => {
                 if(itemS.proportion != 0){
                     this.inquiryStatusData.push({
@@ -126,7 +127,7 @@ export default class HomeComponent extends Vue {
         });
 
         /**订单数据 */
-        api_work.Work.getOrderCount({}).then((res)=>{
+        api_work.Work.getOrderCount().then((res)=>{
             this.orderTotal = res.order;
             this.alreadyReach = res.tchbd;
             this.alreadyDelivery = res.ship;
@@ -152,7 +153,7 @@ export default class HomeComponent extends Vue {
         });
 
         /**订单图表 */
-        api_work.Work.getOrderStatus({}).then((res)=>{
+        api_work.Work.getOrderStatus().then((res)=>{
             res.item1.forEach((itemS) => {
                 this.orderStatusData.push({
                     name:itemS.stateName,

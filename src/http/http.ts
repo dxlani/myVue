@@ -50,6 +50,7 @@ export let ax = axios.create({
 // http request 拦截器
 ax.interceptors.request.use(
     config => {
+        console.log('aaaaaaaaaa',store.state.token)
         if (store.state.token) {
             config.headers.Authorization = `Bearer ${store.state.token}`;
         }

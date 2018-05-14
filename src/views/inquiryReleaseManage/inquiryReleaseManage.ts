@@ -3,7 +3,7 @@ import api_cspInquiry from '../../api/api_cspInquiry'
 declare var bootstrapTable: any;
 declare var $: any;
 declare var bootbox: any;
-
+// var datetimepicker = require('jquery-datetimepicker');
 @Component({
     template: require('./inquiryReleaseManage.html')
 })
@@ -59,8 +59,15 @@ export default class InquiryReleaseManageComponent extends Vue {
         //     this.load(this.skip,this.count);
         // });
         
-        $('#inquiryReleaseManage_startTime').datetimepicker();
-        $("#inquiryReleaseManage_endTime").datetimepicker();
+        $('#inquiryReleaseManage_startTime').datetimepicker({
+      
+        });
+        $("#inquiryReleaseManage_endTime").datetimepicker({
+            // lang:"zh", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
+            // format:"Y-m-d H:i:s",      //格式化日期
+            // timepicker:true,    //关闭时间选项
+            // hours12: false,  //24h
+        });
         var $table = $('#inquiryReleaseManage_table').bootstrapTable({
                 dataField: "rows",//服务端返回数据键值 就是说记录放的键值是rows，分页时使用总记录数的键值为total
                 clickToSelect:true,

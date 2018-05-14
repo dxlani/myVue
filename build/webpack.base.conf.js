@@ -31,8 +31,8 @@ module.exports = {
         // webpack 使用 jQuery，如果是自行下载的
         // 'jquery': path.resolve(__dirname, '../src/assets/libs/jquery/jquery.min'),
         // 如果使用NPM安装的jQuery
-         'jquery': 'jquery',
-         'images':resolve('static/img')
+        'jquery': 'jquery',
+        'datetimepicker':path.resolve(__dirname, "../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"),
     }
   },
   // externals:{
@@ -103,11 +103,11 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
+      jquery: 'jquery',
       jQuery: "jquery",
       bootbox:'bootbox',
-      jquery: 'jquery',
       Vue: 'vue',
-      datatimepicker: 'datatimepicker',
+      datetimepicker: 'datatimepicker',
   })
    ]
 }
