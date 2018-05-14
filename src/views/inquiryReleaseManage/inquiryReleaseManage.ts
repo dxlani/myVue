@@ -5,12 +5,13 @@ declare var bootbox: any;
 import pagination from '../../components/pagination'
 @Component({
     template: require('./inquiryReleaseManage.html'),
-    components:{pagination}
+    components:{
+        pagination
+    },
 })
 export default class InquiryReleaseManageComponent extends Vue {
-    Records=1;
-    showRecords=true;
-    currentPage;
+    Records:number=1;
+    currentPage:number;
     skip:number;
     count:number;
     seeks = true;
@@ -51,13 +52,6 @@ export default class InquiryReleaseManageComponent extends Vue {
             this.skip = 0;
             this.count = 10;
         }
-        // this.$on('pageIndexChange', function(event) {
-        //     this.count = event.pageSize;
-        //     this.skip = event.pageIndex;
-        //     this.currentPage = event.currentPage;
-        //     this.localPage(this.skip,this.count,this.currentPage)
-        //     this.load(this.skip,this.count);
-        // });
         
         $('#inquiryReleaseManage_startTime').datetimepicker({
       
@@ -69,11 +63,11 @@ export default class InquiryReleaseManageComponent extends Vue {
             // hours12: false,  //24h
         });
         var $table = $('#inquiryReleaseManage_table').bootstrapTable({
-                dataField: "rows",//服务端返回数据键值 就是说记录放的键值是rows，分页时使用总记录数的键值为total
+                dataField: "rows",
                 clickToSelect:true,
                 singleSelect:true,
-                sidePagination: "client",//服务端分页
-                buttonsAlign: "left",//按钮对齐方式 子询价编号 发货地址 送货地址 货物名称 货物数量 所需车长 询价时间 紧急程度 询价状态
+                sidePagination: "client",
+                buttonsAlign: "left",
                 columns: [
                     {field: "select",title: "",checkbox: true,width: 20,align: "center",valign: "middle"},
                     {field: "cspInquiryId",title: "总询价编号", sortable: true,order: "desc"},
@@ -90,7 +84,6 @@ export default class InquiryReleaseManageComponent extends Vue {
                         field: 'template',
                         title: '操作',
                         formatter: function operateFormatter(value, row, index) {
-                            // Chris=='待处理' Dan=="已处理"
                             var aa=`<a title='终结订单' class="endOrder"><i class='glyphicon glyphicon-minus-sign primary text-primary m-l-xs'></i></a>`;
                             var bb=`<a class="detailOrder" href='#!/app/inquiry/inquiryAdd/?id=${row.id}&name=detail' title='详情'><i class='glyphicon glyphicon-eye-open m-l-xs primary text-info'></i></a>`;
                             var cc=`<a href='#!/app/inquiry/inquiryAdd/?id=${row.id}&name=edit' title='编辑'><i class='glyphicon glyphicon-edit m-l-xs primary text-info'></i></a>`;
@@ -172,7 +165,6 @@ export default class InquiryReleaseManageComponent extends Vue {
             this.seeks=false;
             var totalItems=res.total;
             this.Records= totalItems==0?0.5:totalItems;
-            this.showRecords=totalItems==0?false:true;
         },function(rej){
             this.seeks=false;
         });
@@ -223,6 +215,14 @@ export default class InquiryReleaseManageComponent extends Vue {
         if($('#inquiryReleaseManage_table').bootstrapTable('getSelections').length>0){
             this.$router.push('../../app/order/orderReleaseAdd/?id='+rowSelectedToOrder.id+'&name=copyInquiryRelease');
         }
+    }
+    /* 分页 */
+    pageChange=(event)=>{
+        this.skip = event.pageIndex;
+        this.count = event.pageSize;
+        this.currentPage = event.currentPage;
+        this.localPage(this.skip,this.count,this.currentPage)
+        this.load(this.skip,this.count);
     }
 
 }
