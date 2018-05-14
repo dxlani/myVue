@@ -1,0 +1,83 @@
+<div>
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">询价发布管理</h1>
+    </div>
+    <div class="wrapper-md" id="inquiryReleaseManage">
+        <div class="panel panel-default">
+            <div class="panel-heading font-bold">查询</div>
+            <div class="form-horizontal panel-body">
+                <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">询价起始时间</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                    <input id="inquiryReleaseManage_startTime" name="startTime" v-model="query.startTime" placeholder="询价起始时间" class="form-control" type="text" />
+                    <span id="openStartTime" class="form-control-feedback curpoint">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">询价结束时间</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                    <input id="inquiryReleaseManage_endTime" name="endTime" v-model="query.endTime" placeholder="询价结束时间" class="form-control" type="text" />
+                    <span id="openEndTime" class="form-control-feedback curpoint">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <div class="line  pull-in show-ls"></div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货地址</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <input id="inquiryReleaseManage_startAddress" name="startAddress" type="text" class="form-control" v-model="query.startAddress" placeholder="发货地址">
+                </div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">送货地址</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <input id="inquiryReleaseManage_endAddress" name="endAddress" type="text" class="form-control" v-model="query.endAddress" placeholder="送货地址">
+                </div>
+                <div class="line line-xs pull-in"></div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">总询价编号</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <input type="text" class="form-control" id="inquiryReleaseManage_inquiryId" name="inquiryId" v-model="query.inquiryId" placeholder="总询价编号">
+                </div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">子询价编号</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <input type="text" class="form-control" id="inquiryReleaseManage_inquiryChildId" name="inquiryChildId" v-model="query.inquiryChildId" placeholder="子询价编号">
+                </div>
+                <div class="line  pull-in show-ls"></div>
+                <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">询价状态</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <select id="inquiryReleaseManage_inquiryState" name="inquiryState" v-model="query.inquiryState" class="form-control input-sm">
+                        <option v-for="option in stateDropDown" v-bind:value="option.value">
+                            {{ option.text }}
+                        </option>
+                    </select>
+                </div>
+                <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <button id="inquiryReleaseManage_query" name="inquiryReleaseManage_query" @click="queryUsers()" class="btn btn-sm btn-default btn-addon">
+                            <i class="glyphicon glyphicon-search" v-show="!seeks"></i>
+                            <i v-show="seeks">
+                                <b class="fa fa-spinner no-bordr"  v-bind:class="{'fa-spin':seeks}"></b>
+                            </i>
+                            <span v-show="!seeks">查询</span>
+                            <span v-show="seeks">查询中...</span>
+                        </button>
+                </div>
+            </div>
+    
+    
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                询价单发布管理列表
+            </div>
+            <div class="line line-xs pull-in"></div>
+            <div class="table-responsive">
+                <table id="inquiryReleaseManage_table" class="table table-hover" data-events="actionEvents" style="min-width:1000px;"></table>
+                <!-- <pagination-Com :total="Records" v-on:pageIndexChange="onPageIndexChange($event)"></pagination-Com> -->
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <a id="inquiryReleaseManage_toInquiryAdd" @click="LinckToInquiryAdd()" class="pull-right-xs btn btn-sm btn-primary btn-addon"><i class="glyphicon glyphicon-list-alt"></i>询价单新增</a>
+                    <a id="inquiryReleaseManage_toOrderAdd" @click="LinckToOrderAdd()" class="pull-right-xs btn btn-sm btn-primary btn-addon" disabled><i class="glyphicon glyphicon-plus"></i>订单新增</a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>

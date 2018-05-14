@@ -16,7 +16,7 @@ export default {
         return Put('posts/1',data)
     },
     deletePackage(data) {
-        return Delete('posts/1')
+        return Delete('posts/1',{})
     },
 /* ================================ */
    /* login */
@@ -52,6 +52,22 @@ export default {
     autoLogin:function(openId){
         return "User/AutoLogin?OpenID=" + openId;
     }
-
+},
+  Work:{
+    getInquiryCount : function (data) {
+        return Get("User/GetIsContract",data)
+    },
+    getInquiryStatus : function (data) {
+        return Get("Inquiry/GetInquiryStatistics",data)
+    },
+    getOrderCount : function (data) {
+        return Get("GetCount/getOrderCount",data)
+    },  
+    getOrderStatus : function (data) {
+        return Get("Order/GetOrderStatistics",data)
+    },
+    getCount:function(data){
+        return Get("GetCount/GetInquiryManager",data)
+    }
 },
 }

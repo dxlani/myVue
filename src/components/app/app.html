@@ -1,18 +1,20 @@
-
-  <div id="app">
-      <app-navbar></app-navbar>
-      <div class="marginLeft" >
-      <app-header v-bind:title="title" ></app-header> 
-      <router-view ></router-view>
-      <app-footer :title="footerTitle"></app-footer> 
-     </div>
-  
-    
-  </div>
-
-
-
- <!-- <style src="./App.css" lang="css" ></style> -->
+  <div class="body app-header-fixed"  id="app">
+    <div class=" body">
+        <div class="app-header navbar header-black">
+          <app-header></app-header> 
+        </div>
+        <div class="app-aside hidden-xs">
+          <app-navbar></app-navbar>
+        </div>
+            
+        <div class="app-content" role="main">
+            <div class="app-content-body fade-in-up">
+              <router-view></router-view>
+            </div>
+        </div>
+        <app-footer></app-footer> 
+    </div>
+</div>
 
 
 

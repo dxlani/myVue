@@ -2,13 +2,18 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import hello from '../views/hello'
-import login from '../views/login'
+
 import okay from '../views/okay'
 import demo from '../views/demo'
 import test from '../views/test'
 import other from '../views/other'
 import store from '../vuex/store'
-import app from '../components/App'
+
+import login from '../views/login'
+import app from '../components/app'
+import HomeComponent from '../views/home'
+import InquiryReleaseManageComponent from '../views/inquiryReleaseManage'
+declare var $:any;
 Vue.use(Router)
 
 
@@ -22,34 +27,37 @@ Vue.use(Router)
     },
     {
       path: '/login',
-      name: 'login',
+      name:'login',
       component: login,
       meta:{title: 'login',requireAuth: false},
     },
     {
       path:'/app',
-      name: 'app',
       component: app,
       meta:{title: '飓风物流PC端',requireAuth: true},
       children:[
         {
           path: '',
-          name: 'hello',
-          component: hello,
+          component: HomeComponent,
+        },
+        {
+          path: 'home',
+          component: HomeComponent,
+        },
+        {
+          path: 'inquiry/inquiryReleaseManage',
+          component: InquiryReleaseManageComponent,
         },
         {
           path: 'demo',
-          name: 'demo',
           component: demo,
         },
         {
           path: 'hello',
-          name: 'hello',
           component: hello,
         },
         {
-          path: 'okay/',
-          name: 'okay',
+          path: 'okay',
           component:okay,
           children: [
             {
@@ -58,12 +66,10 @@ Vue.use(Router)
             },
             {
               path: 'other',
-              name: 'other',
               component: other
             },
             {
               path: 'test',
-              name: 'test',
               component: test
             } 
           ],
@@ -93,6 +99,15 @@ router.beforeEach((to, from, next) => {
           //路由钩子改标题
         if(to.meta.title){
           document.title = to.meta.title
+          next()
+        }
+        //登录页加背景图
+        if(to.path=="/login"){
+         $('body').addClass('body-bg')
+         next()
+        }else{
+          $('body').removeClass('body-bg')
+          next()
         }
    })
 

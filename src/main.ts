@@ -2,28 +2,28 @@ import router from './router'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import * as echarts from "echarts"
 
 import navbar from './components/nav'
 import header from './components/header'
 import footer from './components/footer'
 // import App from './App'
 
-import './main.css' /* 全局样式 */
+import './main.scss' /* 全局样式 */
 Vue.config.productionTip = false
 // Vue.prototype.axios = axios;
-
-
-// 引入CSS
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import "../node_modules/font-awesome/css/font-awesome.min.css"
-import "../node_modules/bootstrap-table/dist/bootstrap-table.min.css"
-import "../node_modules/jquery-datetimepicker/jquery.datetimepicker.css"
-import "../node_modules/jquery-weui/dist/css/jquery-weui.min.css"
+declare var $:any;
 
 
 //引入js
+import   "../node_modules/jquery/dist/jquery.js"
 import  '../node_modules/bootbox/bootbox.js'
 import  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+import  "../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"
+import  "../node_modules/jquery-weui/dist/js/jquery-weui.min.js"
+import  "../node_modules/ali-oss/dist/aliyun-oss-sdk.min.js"
+import  "../node_modules/bootstrap-table/dist/bootstrap-table.js"
+
 /* 全局注册组件 */
 //  Vue.component('navbar',navbar);
 

@@ -1,17 +1,16 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
-import axios, { AxiosResponse } from 'axios'
-import api from '../../api/api'
-import './login.css'
-
+// import axios, { AxiosResponse } from 'axios'
+import api_login from '../../api/api_login'
+import './login.scss'
 declare var bootbox:any;
 declare var $:any;
-declare function require(string): string;
 
 @Component({
   name:'login',
   template: require('./login.html'),
 })
 export default class login extends Vue {
+
   authError=""
   user={
       weChatOpenid:"",
@@ -27,15 +26,11 @@ export default class login extends Vue {
   /**是否显示更新说明 */
   isShow: any;
   mounted(){
+    
     this.versionCsp = "V18-0312";
     // this.wilddogUrl = dataService().wilddogUrl;
     this.authError="";
-     //设置背景图片
-    $('body').css({
-        'backgroundImage': "url('/static/img/login-bj.png')",
-        'backgroundAttachment': 'fixed',
-        'backgroundSize': 'cover'
-    });
+
   
 }
 login(){
@@ -43,20 +38,22 @@ login(){
         return;
     }
     var loginData;
-    api.User.login
-    api.User.login(this.user).then((res)=>{
+    api_login.User.login(this.user).then(res=>{
         console.log('res',res);
-        let result=res;
         // if(!(res&&res.jwtToken)){
         //     bootbox.alert('请输入正确的用户名和密码');
         //     return;
         // }
-        loginData=result;
+
+        if(res.jwtToken){
+            window.sessionStorage.setItem("token",res.jwtToken);
+        }
+        loginData=res;
         window.sessionStorage.setItem("logined","yes");
         var userInfo=JSON.stringify(loginData);
         window.sessionStorage.setItem("userInfo",userInfo);
         window.sessionStorage.setItem("isContract",loginData.isContract);
-        window.sessionStorage.setItem("userName",result.userName);
+        window.sessionStorage.setItem("userName",loginData.userName);
 
             if(loginData.isContract){
                this.$router.push('/app/home');
@@ -76,7 +73,6 @@ login(){
 };
 
 
-
 getInquiryList(){
     // dataService().Inquiry.getInquiryList();
 }
@@ -85,13 +81,13 @@ repo:string = 'https://github.com/itsFrank/vue-typescript';
 /* 协议 同意 */
 agree(){
     /* api */
-    api.User.contract({}).then((res)=>{
+    api_login.User.contract().then((res)=>{
         console.log('res2',res)
-    // if(res.success){
-    //     $('#myModal').modal('hide');
-    //     window.sessionStorage.setItem("isContract",'true');
-    //     this.$router.push('/app/home');
-    // }
+    if(res.success){
+        $('#myModal').modal('hide');
+        window.sessionStorage.setItem("isContract",'true');
+        this.$router.push('/app/home');
+    }
     })
 }
 
@@ -105,6 +101,4 @@ agree(){
         this.$router.push('/login');
     }
 }
-
-  
 

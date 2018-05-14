@@ -7,7 +7,7 @@ const store = new Vuex.Store({
   // 定义状态
   state: {
     author: 'Dingxiaolin',
-    token:'this need define a login token',
+    token:'',
     isLogin:''
   },
   mutations: {

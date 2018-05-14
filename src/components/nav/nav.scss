@@ -1,0 +1,8 @@
+.navi a{
+    font-size:14px;
+}
+
+.bg-black .nav>li:focus>a,
+.bg-black .nav>li.active>a {
+    font-weight: bold;
+}

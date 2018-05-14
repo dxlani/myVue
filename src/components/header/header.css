@@ -1,9 +1,10 @@
-#header{
-    background:lightgreen;
-    padding:10px;
-    width: 100%;
+.navbar-header{
+    background-color: #1c2b36;
+   
 }
-p{
-    color:#fff;
-    font-size: 26px;
+.navbar-header a{
+     color:#869fb1;
+}
+.navbar-brand{
+    font-size: 18px
 }

@@ -18,7 +18,7 @@ function buildHeader(): { [key: string]: string } {
 export let ax = axios.create({
     // baseURL: host,
     headers: buildHeader(),
-    timeout: 5000,
+    timeout: 10000,
     responseType: 'json',
     withCredentials: true, 
     transformRequest: [
@@ -50,6 +50,7 @@ export let ax = axios.create({
 // http request 拦截器
 ax.interceptors.request.use(
     config => {
+        console.log('aaaaaaaaaa',store.state.token)
         if (store.state.token) {
             config.headers.Authorization = `Bearer ${store.state.token}`;
         }
@@ -87,22 +88,22 @@ ax.interceptors.response.use(
   /* 手动取消请求的不显示报错 */
         function handleError(err) {
             // 如果是手动取消的请求，不显示错误信息
+            console.log("handleError1",err)
             if (axios.isCancel(err)) {
-                console.log(err)
+                // console.log(err)
             } else {
-                alert(err)
+                // bootbox.alert(err)
             }
         }
 
     /* GET  */
-        export function Get<T>(url, data): Promise<T> {
+        export function Get<T>(url, data): Promise<any> {
             // `params`是要与请求一起发送的URL参数
             // 必须是纯对象或URLSearchParams对象
             return ax
                 .get(url, {
                     params: data 
                 })
-                .then(res=>res)
                 .then(res => {
                     return res.data
                 })
@@ -113,7 +114,7 @@ ax.interceptors.response.use(
         }
 
   /* POST */
-        export function Post<T>(url, data): Promise<T> {
+        export function Post<T>(url, data): Promise<any> {
             return ax
                 .post(url, data)
                 .then(res => {
@@ -125,7 +126,7 @@ ax.interceptors.response.use(
                 })
         }
   /* PUT */
-        export function Put<T>(url, data): Promise<T> {
+        export function Put<T>(url, data): Promise<any> {
             return ax
                 .put(url, data)
                 .then(res => {
@@ -137,7 +138,7 @@ ax.interceptors.response.use(
                 })
         }
   /* PATCH */
-        export function Patch<T>(url, data): Promise<T> {
+        export function Patch<T>(url, data): Promise<any> {
             return ax
                 .patch(url, data)
                 .then(res => {
@@ -149,9 +150,9 @@ ax.interceptors.response.use(
                 })
         }
     /* DELETE */
-    export function Delete<T>(url): Promise<T> {
+    export function Delete<T>(url,data): Promise<any> {
         return ax
-            .delete(url)
+            .delete(url,data)
             .then(res => {
                 return res.data
             })

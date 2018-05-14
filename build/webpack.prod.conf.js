@@ -64,6 +64,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: config.build.index,
       template: 'index.html',
       inject: true,
+      favicon:'./logo.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -113,6 +114,11 @@ const webpackConfig = merge(baseWebpackConfig, {
       {
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
+        ignore: ['.*']
+      },
+      {
+        from: path.resolve(__dirname, '../src/assets'),
+        to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
     ])
