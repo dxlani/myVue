@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import hello from '../views/hello'
-
 import okay from '../views/okay'
 import demo from '../views/demo'
 import test from '../views/test'
 import other from '../views/other'
+
 import store from '../vuex/store'
 
 import login from '../views/login'

@@ -1,11 +1,11 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import api_cspInquiry from '../../api/api_cspInquiry'
-declare var bootstrapTable: any;
 declare var $: any;
 declare var bootbox: any;
-
+import pagination from '../../components/pagination'
 @Component({
-    template: require('./inquiryReleaseManage.html')
+    template: require('./inquiryReleaseManage.html'),
+    components:{pagination}
 })
 export default class InquiryReleaseManageComponent extends Vue {
     Records=1;
@@ -179,7 +179,6 @@ export default class InquiryReleaseManageComponent extends Vue {
     }
     //查询调用
     queryUsers(){
-        bootbox.alert('sssssssssssssssssssss')
         this.seeks=true;
         this.skip = 0;
         this.currentPage = 1;

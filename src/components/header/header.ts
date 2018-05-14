@@ -23,7 +23,10 @@ arrow:boolean=true;
       $('.body').addClass('app-aside-folded');
     }
   }
-
+  logoOut(){
+    window.sessionStorage.clear();
+    this.$router.push('./login');
+  }
   get userName(){
       return  sessionStorage.getItem('userName');
   }
