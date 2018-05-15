@@ -1,0 +1,99 @@
+<div id="sumaccount">
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">财务对账</h1>
+    </div>
+    <div class="wrapper-md">
+        <div class="panel panel-default">
+            <div class="panel-heading font-bold">查询</div>
+            <div class="form-horizontal panel-body">
+                <div class="row">
+                    <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货起始时间</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                        <input id="sumaccount_startTime" name="startTime" datetimepicker plugintype="datetime" v-model="checkQuery.startTime"  placeholder="起始时间" class="form-control" type="text" />
+                        <span id="sumaccount_openStartTime" class="form-control-feedback curpoint">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货结束时间</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                        <input id="sumaccount_endTime" name="endTime" datetimepicker plugintype="datetime" v-model="checkQuery.endTime"  placeholder="结束时间" class="form-control" type="text" />
+                        <span id="sumaccount_openEndTime" class="form-control-feedback curpoint">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">货物类别</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                        <input class="form-control" id="sumaccount_goodsType" name="goodsType" v-model="checkQuery.goodsType" placeholder="请输入货物类别" type="text">
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">货物名称</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                        <input  class="form-control" id="sumaccount_goodsName" name="goodsName" v-model="checkQuery.goodsName" placeholder="请输入货物名称" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货地址</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                        <input class="form-control" id="sumaccount_originAddress" name="originAddress" v-model="checkQuery.originAddress" placeholder="请输入发货地址" type="text">
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">送货地址</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                        <input class="form-control" id="sumaccount_destinationAddress" name="destinationAddress" v-model="checkQuery.destinationAddress" placeholder="请输入送货地址" type="text">
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货单号</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                        <input class="form-control" id="sumaccount_orderNumber" name="orderNumber" v-model="checkQuery.orderNumber" placeholder="请输入发货单号" type="text">
+                    </div>
+                    <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">回单状态</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                        <select id="sumaccount_receiptStatus" name="receiptStatus" class="form-control" v-model="checkQuery.receiptStatus" >
+                            <option v-for="option in receiptStatusList" v-bind:value="option.value">
+                                {{ option.text }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group"></div>
+                    <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group"></div>
+                    <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group"></div>
+                    <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group"> 
+                        <button id="sumaccount_querySum" @click="querySum()" class="btn btn-sm btn-default btn-addon">
+                            <i class="glyphicon glyphicon-search" v-show="!seeks"></i>
+                            <i v-show="seeks">
+                                <b class="fa fa-spinner no-bordr"  v-bind:class="{'fa-spin':seeks}"></b>
+                            </i>
+                            <span v-show="!seeks">查询</span>
+                            <span v-show="seeks">查询中...</span>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading font-bold">
+                对账列表
+            </div>
+            <div class="line line-xs pull-in">
+            </div>
+            <div class="table-responsive" >
+                <table id="sumaccount_table" class="table table-hover" data-events="actionEvents"></table>
+                <pagination :total="records" v-on:pageIndexChange="pageChange(event)"></pagination>    
+            </div>
+            <div class="panel-body">
+                <label class="form-group" id="sumaccount_priceTotal">
+                    <p>费用合计：{{priceTotal}} 元</p>
+                </label>
+                <div>
+                    <label class="form-group" id="downExport">
+                        <button id="sumaccount_export" class="pull-right-xs btn btn-sm btn-primary btn-addon "  @click="downExport()" ><i class="glyphicon glyphicon-download-alt"></i>导出报表</button>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
