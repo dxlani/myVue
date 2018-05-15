@@ -82,7 +82,6 @@ export default class HomeComponent extends Vue {
 
         /**询价单数据 */
         api_work.Work.getInquiryCount().then((res)=>{
-            console.log("resss",res);
             this.inquiryTotal = res.inquiry;
             this.carrierQuotation = res.quote;
             this.carrierQuotedprice = res.successfulQuote;

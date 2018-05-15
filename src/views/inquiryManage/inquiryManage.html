@@ -1,0 +1,78 @@
+<div>
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">询价管理</h1>
+    </div>
+    <div class="wrapper-md" id="inquiryManage">
+        <div class="panel panel-default">
+            <div class="panel-heading font-bold">查询</div>
+            <div class="form-horizontal panel-body">
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">总询价单编号</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                    <input id="inquiryManage_code" name="code" v-model="inquiryParameter.code" placeholder="总询价单编号" class="form-control" type="text" />
+                </div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">子询价单编号</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                    <input id="inquiryManage_childCode" name="childCode" v-model="inquiryParameter.childCode" placeholder="子询价单编号" class="form-control" type="text" />
+                </div>
+                <div class=""></div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">询价状态</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <select class="form-control input-sm" id="inquiryManage_inquiryStatus" name="inquiryStatus" v-model="inquiryParameter.status">
+                        <option v-for="option in statusList " v-bind:value="option.value">
+                            {{ option.text }}
+                        </option>
+                    </select>
+                </div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">下单起始时间</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                    <input id="inquiryManage_inquiryStartTime" name="inquiryStartTime" plugintype="datetime" v-model="inquiryParameter.startTime" placeholder="下单起始时间" class="form-control" type="text" />
+                    <span class="form-control-feedback curpoint ">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <!--分隔符-->
+                <div class="line line-xs pull-in"></div>
+                <label class="control-label pull-left ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">下单结束时间</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                    <input id="inquiryManage_inquiryEndTime" name="inquiryEndTime" plugintype="datetime" v-model="inquiryParameter.endTime" placeholder="下单结束时间" class="form-control" type="text" />
+                    <span class="form-control-feedback curpoint ">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货地址</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <input type="text" class="form-control" id="inquiryManage_sendAddress" v-model="inquiryParameter.sendAddress" placeholder="发货地址" name="sendAddress">
+    
+                </div>
+                <div class=""></div>
+                <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">送货地址</label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <input type="text" class="form-control" id="inquiryManage_receiveAddress" v-model="inquiryParameter.receiveAddress" placeholder="送货地址" name="receiveAddress">
+                </div>
+                <label class="control-label pull-left  ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3 "></label>
+                <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                    <button id="inquiryManage_query" name="inquiryManageQuery" @click="query()" class="btn btn-sm btn-default btn-addon">
+                           <i class="glyphicon glyphicon-search" v-show="seeks"></i>
+                            <i v-show="!seeks">
+                                <b class="fa fa-spinner no-bordr"  v-bind:class="{'fa-spin':seeks}"></b>
+                            </i>
+                            <span v-show="seeks">查询</span>
+                            <span v-show="!seeks">查询中...</span>
+                        </button>
+                </div>
+                <!--分割线-->
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                询价单管理列表
+            </div>
+            <div class="line line-xs pull-in"></div>
+            <div class="table-responsive">
+                <table id="inquiryManage_table" class="table table-hover" data-events="actionEvents" style="min-width:1000px;"></table>
+                <pagination :total="Records" @pageIndexChange="pageChange"></pagination>
+            </div>
+        </div>
+    </div>
+</div>
