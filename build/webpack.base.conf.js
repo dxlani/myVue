@@ -31,7 +31,8 @@ module.exports = {
         'jquery': 'jquery',
         'jquery-datetimepicker':path.resolve(__dirname, "../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"),
         'jqueryweui':path.resolve(__dirname, "../node_modules/jquery-weui/dist/js/jquery-weui.min.js"),
-    }
+        'bootstrap-table-zh-CN':path.resolve(__dirname,"../node_modules/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js")
+      }
   },
   // externals:{
   //   "vue":"Vue"

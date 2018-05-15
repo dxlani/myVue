@@ -53,15 +53,8 @@ export default class InquiryReleaseManageComponent extends Vue {
             this.count = 10;
         }
         
-        $('#inquiryReleaseManage_startTime').datetimepicker({
-      
-        });
-        $("#inquiryReleaseManage_endTime").datetimepicker({
-            // lang:"zh", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
-            // format:"Y-m-d H:i:s",      //格式化日期
-            // timepicker:true,    //关闭时间选项
-            // hours12: false,  //24h
-        });
+        $('#inquiryReleaseManage_startTime').datetimepicker({onChangeDateTime:(dp,$input)=>{this.query.startTime=$input.val()}});
+        $("#inquiryReleaseManage_endTime").datetimepicker({onChangeDateTime:(dp,$input)=>{this.query.endTime=$input.val()}});
         var $table = $('#inquiryReleaseManage_table').bootstrapTable({
                 dataField: "rows",
                 clickToSelect:true,

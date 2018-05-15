@@ -67,16 +67,8 @@ export default class InquiryManageComponent extends Vue {
         }
     
         $('p').remove('.VuePagination__count');
-        $('#inquiryManage_inquiryStartTime').datetimepicker();
-        $("#inquiryManage_inquiryEndTime").datetimepicker();
-
-        // this.$on('pageIndexChange', function(event) {
-        //     this.count = event.pageSize;
-        //     this.skip = event.pageIndex;
-        //     this.currentPage = event.currentPage;
-        //     this.localPage(this.skip,this.count,this.currentPage)
-        //     this.load(this.inquiryParameter,this.skip,this.count);
-        // });
+        $('#inquiryManage_inquiryStartTime').datetimepicker({onChangeDateTime:(dp,$input)=>{this.inquiryParameter.startTime=$input.val()}});
+        $("#inquiryManage_inquiryEndTime").datetimepicker({onChangeDateTime:(dp,$input)=>{this.inquiryParameter.endTime=$input.val()}});
 
          var $table = $('#inquiryManage_table').bootstrapTable({
                 // url: "index.php",//数据源
