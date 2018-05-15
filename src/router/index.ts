@@ -15,6 +15,7 @@ import HomeComponent from '../views/home'
 import InquiryReleaseManageComponent from '../views/inquiryReleaseManage'
 import InquiryManageComponent from '../views/inquiryManage'
 import OrderReleaseManageComponent from '../views/orderReleaseManage'
+import OrderManageComponent from '../views/orderManage'
 import Sumaccount from '../views/Sumaccount'
 declare var $:any;
 Vue.use(Router)
@@ -59,6 +60,10 @@ Vue.use(Router)
         {
           path: 'order/orderReleaseManage',
           component: OrderReleaseManageComponent,
+        },
+        {
+          path: 'order/orderManage',
+          component: OrderManageComponent,
         },
         {
           path: 'Sumaccount',

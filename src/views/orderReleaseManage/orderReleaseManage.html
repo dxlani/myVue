@@ -6,11 +6,11 @@
         <div class="panel panel-default">
                 <div class="panel-heading font-bold">查询</div>
                 <div class="form-horizontal panel-body">
-                    <label class="control-label pull-left ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">订单编号</label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">订单编号</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
                         <input type="text" class="form-control" id="orderReleaseManage_orderId" name="orderId" v-model="query.orderId" placeholder="请输入总询价编号">
                     </div>
-                    <label class="control-label pull-left  ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">订单状态</label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">订单状态</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
                         <select class="form-control input-sm" id="orderReleaseManage_orderStatus" name="orderStatus" v-model="query.orderStatus">
                             <!-- <option value="" selected>全部</option> -->
@@ -21,7 +21,7 @@
                     </div>
                     <!--<div class="line line-xs pull-in"></div>-->
                     <div class=""></div>
-                    <label class="control-label pull-left ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">发货起始时间</label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货起始时间</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group date has-feedback">
                             <input id="orderReleaseManage_startTime" name="startTime" datetimepicker plugintype="datetime" v-model="query.startTime" placeholder="请输入发货起始时间" class="form-control" type="text" />
                             <span id="openApplicationStartTime" name="openApplicationStartTime" class="form-control-feedback curpoint">
@@ -29,7 +29,7 @@
                             </span>
                     </div>
     
-                    <label class="control-label pull-left ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">发货结束时间</label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货结束时间</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group date has-feedback">
                             <input id="orderReleaseManage_endTime" name="endTime" datetimepicker plugintype="datetime" v-model="query.endTime" placeholder="请输入发货结束时间" class="form-control" type="text" />
                             <span id="openApplicationEndTime" name="openApplicationEndTime" class="form-control-feedback curpoint">
@@ -37,20 +37,19 @@
                             </span>
                     </div>
                     <div class="line line-xs pull-in"></div>
-                    <label class="control-label pull-left ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">销售编号</label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">销售编号</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
                         <input id="orderReleaseManage_clientOrderId" name="clientOrderId" class="form-control" v-model="query.clientOrderId" type="text" placeholder="请输入销售编号">
                     </div>
-                    <label class="control-label pull-left ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">发货地址</label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货地址</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
                         <input type="text" class="form-control" id="orderReleaseManage_startAddress" name="startAddress" v-model="query.startAddress" placeholder="请输入发货地址">
                     </div>
-                    <label class="control-label pull-left ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">送货地址</label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">送货地址</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
                         <input type="text" class="form-control" id="orderReleaseManage_endAddress" name="endAddress" v-model="query.endAddress" placeholder="请输入送货地址">
                     </div>
-                    <div class="line  pull-in show-ls"></div>
-                    <label class="control-label pull-left  ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3"></label>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
                         <button @click="queryOrderRelease()" class="btn btn-sm btn-default btn-addon" id="orderReleaseManage_queryOrderRelease" name="queryOrderRelease">
                             <i class="glyphicon glyphicon-search" v-show="!seeks"></i>

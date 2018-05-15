@@ -1,0 +1,117 @@
+<div>
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">订单管理</h1>
+    </div>
+    <div class="wrapper-md" id="orderManage">
+        <div class="panel panel-default">
+                <div class="panel-heading font-bold">查询</div>
+                <div class="form-horizontal panel-body">
+                    <div class="row">
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">订单编号</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                            <input type="text" class="form-control" id="orderManage_orderQueryOrderId" name="orderManage_orderQueryOrderId" v-model="orderQuery.orderId" placeholder="请输入订单编号">
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">订单状态</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                            <select class="form-control" id="orderManage_orderQueryOrderStatus" name="orderManage_orderQueryOrderStatus" v-model="orderQuery.orderStatus" >
+                                <option v-for="option in orderStatusList" v-bind:value="option.value">
+                                    {{ option.text }}
+                                </option>
+                            </select>
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">下单起始时间</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                            <input id="orderManage_ApplicationStartTime" name="orderManage_ApplicationStartTime" datetimepicker plugintype="datetime" v-model="orderQuery.startTime" placeholder="申请起始时间" class="form-control" type="text" />
+                            <span id="orderManage_openApplicationStartTime"  class="form-control-feedback curpoint">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">下单结束时间</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                            <input id="orderManage_ApplicationEndTime" name="orderManage_ApplicationEndTime" datetimepicker plugintype="datetime" v-model="orderQuery.endTime"  placeholder="申请结束时间" class="form-control" type="text" />
+                            <span id="orderManage_openApplicationEndTime" class="form-control-feedback curpoint">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货地址</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                            <input  class="form-control" id="orderManage_orderQueryStartAddress" name="orderManage_orderQueryStartAddress" v-model="orderQuery.startAddress" placeholder="请输入发货地址" type="text">
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">送货地址</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                            <input class="form-control" id="orderManage_orderQueryEndAddress" name="orderManage_orderQueryEndAddress" v-model="orderQuery.endAddress" placeholder="请输入送货地址" type="text">
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货起始时间</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                            <input id="orderManage_DeliveryStartTime" name="orderManage_DeliveryStartTime" datetimepicker plugintype="datetime" v-model="orderQuery.deliveryStartTime"  placeholder="发货起始时间" class="form-control" type="text" />
+                            <span id="openApplicationEndTime" class="form-control-feedback curpoint">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货结束时间</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group date has-feedback">
+                            <input id="orderManage_DeliveryEndTime" name="orderManage_DeliveryEndTime" datetimepicker plugintype="datetime" v-model="orderQuery.deliveryEndTime"  placeholder="发货结束时间" class="form-control" type="text" />
+                            <span id="openApplicationEndTime" class="form-control-feedback curpoint">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">回单状态</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                            <select class="form-control" id="orderManage_orderQueryReceiptStatus" name="orderManage_orderQueryReceiptStatus" v-model="orderQuery.receiptStatus" >
+                                <option v-for="option in receiptStatusList" v-bind:value="option.value">
+                                    {{ option.text }}
+                                </option>
+                            </select>
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">销售编号</label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
+                            <input id="orderManage_clientOrderId" name="clientOrderId" class="form-control" v-model="orderQuery.clientOrderId" placeholder="请输入销售编号">
+                        </div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3" ></label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group"></div>
+                        <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
+                        <div class="col-lg-2 col-ls-4 col-md-9 col-sm-8 form-group">
+                            <button @click="queryOrder()" id="orderManage_queryOrder" name="orderManage_queryOrder" class="btn btn-sm btn-default btn-addon">
+                                <i class="glyphicon glyphicon-search" v-show="!seeks"></i>
+                                <i v-show="seeks">
+                                    <b class="fa fa-spinner no-bordr"  v-bind:class="{'fa-spin':seeks}"></b>
+                                </i>
+                                <span v-show="!seeks">查询</span>
+                                <span v-show="seeks">查询中...</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    
+    
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                订单管理列表
+            </div>
+            <div class="line line-xs pull-in"></div>
+            <div class="table-responsive" >
+                <table id="table" class="table table-hover" data-events="actionEvents"></table>
+                <pagination :total="records" @pageIndexChange="pageChange"></pagination>
+            </div>
+            <div  class="panel-body">
+                <div class="form-group">
+                    <button id="location" class="pull-right-xs btn btn-sm btn-primary btn-addon "  @click="location()" ><i class="glyphicon glyphicon-map-marker"></i>定位</button>
+                    <button id="BDNPlocation" class="pull-right-xs btn btn-sm btn-primary btn-addon "  @click="getBDNPLocation()" ><i class="glyphicon glyphicon-map-marker"></i>北斗定位</button>
+                    <button id="locktoollocation" class="pull-right-xs btn btn-sm btn-primary btn-addon "  @click="locktoollocation()" ><i class="glyphicon glyphicon-map-marker"></i>硬件定位</button>
+                    <button id="orderManage_excel" name="orderManage_excel" class="pull-right-xs btn btn-sm btn-primary btn-addon"  @click="excel()" ><i class="glyphicon glyphicon-download-alt"></i>报表导出</button>
+                </div>
+            </div>
+        </div>
+    
+    
+    </div>
+    
+    
+    
+     
+</div>
