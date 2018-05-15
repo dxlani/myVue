@@ -1,0 +1,19 @@
+#sumaccount_priceTotal{
+    font-weight: bold;
+}
+
+@media (max-width: 1599px) and (min-width: 1200px){
+    .col-ls-2{
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 1599px) and (min-width: 1200px){
+    .col-ls-2 {
+        width: 16.667%;
+    }
+}

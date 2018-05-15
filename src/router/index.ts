@@ -13,6 +13,7 @@ import login from '../views/login'
 import app from '../components/app'
 import HomeComponent from '../views/home'
 import InquiryReleaseManageComponent from '../views/inquiryReleaseManage'
+import Sumaccount from '../views/Sumaccount'
 declare var $:any;
 Vue.use(Router)
 
@@ -50,8 +51,8 @@ Vue.use(Router)
           component: InquiryReleaseManageComponent,
         },
         {
-          path: 'demo',
-          component: demo,
+          path: 'Sumaccount',
+          component: Sumaccount,
         },
         {
           path: 'hello',
