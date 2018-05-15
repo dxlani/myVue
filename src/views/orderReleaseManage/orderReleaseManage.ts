@@ -180,7 +180,7 @@ import pagination from '../../components/pagination'
     /**
      * 请求数据
      */
-    load = function(skip,count){
+    load(skip,count){
         api_cspOrder.CspOrder.getCspOrderList(this.query.orderId,this.query.orderStatus,this.query.startTime,this.query.endTime,this.query.startAddress,this.query.endAddress,skip,count,this.query.clientOrderId).then((res)=>{            
             this.orderReleaseData = res.data;
             $('#orderReleaseManage_table').bootstrapTable('load', this.orderReleaseData);
@@ -197,7 +197,7 @@ import pagination from '../../components/pagination'
     /**
      * 查询
      */
-    queryOrderRelease= function(){
+    queryOrderRelease(){
        this.seeks=true;
      //  this.$broadcast('reset');
        this.skip = 0;
@@ -210,7 +210,7 @@ import pagination from '../../components/pagination'
     /**
      * 存储搜索条件 
      */
-    localHistory = function(state){
+    localHistory(state){
         if(state){
             let routerName = state.path;
             if(routerName.search("order")>0){
@@ -223,7 +223,7 @@ import pagination from '../../components/pagination'
     /**
      * 存储页数
      */
-    localPage = function(skip,count,currentPage){
+    localPage(skip,count,currentPage){
         var routerName = this.$route.path;
         window.localStorage.setItem(String(routerName+'Page'),JSON.stringify({skip:skip,count:count,currentPage:currentPage}));
     }
