@@ -13,6 +13,7 @@ import login from '../views/login'
 import app from '../components/app'
 import HomeComponent from '../views/home'
 import InquiryReleaseManageComponent from '../views/inquiryReleaseManage'
+import InquiryManageComponent from '../views/inquiryManage'
 declare var $:any;
 Vue.use(Router)
 
@@ -48,6 +49,10 @@ Vue.use(Router)
         {
           path: 'inquiry/inquiryReleaseManage',
           component: InquiryReleaseManageComponent,
+        },
+        {
+          path: 'inquiry/inquiryManage',
+          component: InquiryManageComponent,
         },
         {
           path: 'demo',

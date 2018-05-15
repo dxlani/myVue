@@ -12,7 +12,6 @@ import './main.scss' /* 全局样式 */
 Vue.config.productionTip = false
 // Vue.prototype.axios = axios;
 declare var $:any;
-
 var datetimepicker = require('jquery-datetimepicker');
 var bootstrap = require('bootstrap');
 var bootstrapTable = require('bootstrap-table');
@@ -23,8 +22,7 @@ import  "../node_modules/ali-oss/dist/aliyun-oss-sdk.min.js"
 
 /* 全局注册组件 */
 //  Vue.component('navbar',navbar);
-
-
+$.datetimepicker.setLocale('ch');//设置中文
 
 new Vue({
   el: '#App',
