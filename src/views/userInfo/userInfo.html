@@ -1,0 +1,116 @@
+
+    
+<div id="userInfo">
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">编辑个人信息</h1>
+    </div>
+    <div class="wrapper-md">
+        <div class="panel panel-default">  
+            <ul id="userInfo_userTab" class="nav nav-tabs">
+                <li class="active" id="changePassword_border">
+                    <a href="#changePassword" data-toggle="tab">密码修改</a>
+                </li>
+                <li id="changeName_border">
+                    <a href="#changeName" data-toggle="tab">用户名修改</a>
+                </li>
+            </ul>
+            <div id="userInfo_userTabContent" class="tab-content">
+                <!-- 密码修改 -->
+                 <div id="changePassword" class="wrapper-sm tab-pane fade in active"> 
+                        <div class="panel-body">
+                                <form id="userInfoform" novalidate class="form-validation form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-3  control-label">用户名<span class="text-danger">*</span></label>
+                                        <div class="col-lg-2 col-ls-4  col-md-9 col-sm-8">
+                                            <input name="changePassword_userName" id="changePassword_userName" type="text" class="form-control input-sm" v-model="userName" disabled placeholder="请填写用户名">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-3  control-label">所属用户组<span class="text-danger">*</span></label>
+                                        <div class="col-lg-2 col-ls-4  col-md-9 col-sm-8">
+                                            <input id="changePassword_userGroupName" type="text" class="form-control input-sm" v-model="userGroupName" disabled placeholder="请填写所属用户组" name="userGroupName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-3  control-label">原密码<span class="text-danger">*</span></label>
+                                        <div class="col-lg-2 col-ls-4  col-md-9 col-sm-8">
+                                            <input type="password" name="userPassword" id="changePassword_userPassword" class="form-control input-sm" v-model="userPassword" placeholder="请填写原密码">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-3  control-label">重置密码<span class="text-danger">*</span></label>
+                                        <div class="col-lg-2 col-ls-4  col-md-9 col-sm-8">
+                                            <input type="password" class="form-control input-sm" id="changePassword_rUserPassword" v-model="rUserPassword" placeholder="请填写重置密码" name="rUserPassword" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-3  control-label">重复重置密码<span class="text-danger">*</span></label>
+                                        <div class="col-lg-2 col-ls-4  col-md-9 col-sm-8">
+                                            <input id="changePassword_rUserPasswordAgain" type="password" class="form-control input-sm" v-model="rUserPasswordAgain" placeholder="请再次填写重置密码" name="rUserPasswordAgain" >
+                                            <div class="error">
+                                                <span class="text-danger m-l-sm" v-if="!(rUserPassword == rUserPasswordAgain)">重置密码不匹配！</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="m-t m-b col-lg-3">
+                                            <button id="userInfo_userPasswordSave" type="button" class="btn btn-sm btn-rounded pull-right m-l-sm" v-on:click="save"  >保存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                 </div> 
+            
+                <!-- 用户名修改 -->
+                 <div id="changeName" class="wrapper-sm tab-pane fade"> 
+                        <div class="panel-body">
+                                <form novalidate class="form-validation form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-3  control-label">用户名<span class="text-danger">*</span></label>
+                                        <div class="col-lg-2 col-ls-4  col-md-7 col-sm-8">
+                                            <input id="changeName_userName" type="text" class="form-control input-sm" v-model="cName" placeholder="请输入用户名" name="cName" maxlength="15"  group="nameGroup">
+                                            <!-- v-validate:cName="{ required: true,pattern:'/^[\u4e00-\u9fa5a-zA-Z0-9()\（\）]{2,15}$/'}" -->
+                                            <div class="error">
+                                                <span class="text-danger m-l-sm" >只能包含文字，数字以及大小写字母（2-15个字符之间）</span>
+                                            </div>
+                                        </div>
+                                        <span><strong>当前剩余修改次数：{{editCount}}</strong></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-3  control-label">密码验证<span class="text-danger">*</span></label>
+                                        <div class="col-lg-2 col-ls-4  col-md-7 col-sm-8">
+                                            <input id="changeName_userPasswordHide" name="userPasswordHide" type="password" hidden>
+                                            <input id="changeName_userPassword" type="password" class="form-control input-sm" name="vPassword" v-model="vPassword" placeholder="请输入登录密码"  >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="m-t m-b col-lg-3">
+                                            <button id="userInfo_userNameSave" type="button" class="btn btn-sm btn-rounded pull-right m-l-sm" v-on:click="saveName" >保存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                 </div> 
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <input v-validate="'required|email'" type="text" name="email">
+    <div v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</div> -->
+
+    <input type="text" name="phone" v-validate.initial="'required|phone'" :class="{'form-control': true, 'is-danger': errors.has('phone') }" placeholder="Email" />
+    <div v-show="errors.has('phone')" class="help is-danger">{{ errors.first('phone') }}</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  
+
+ 
+

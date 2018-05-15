@@ -73,7 +73,8 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0",
     "echarts": "3.8.5",
-    "ali-oss": "4.11.4"
+    "ali-oss": "4.11.4",
+    "vee-validate": "^2.0.9"
   },
   "engines": {
     "node": ">= 6.0.0",

@@ -17,6 +17,7 @@ import InquiryManageComponent from '../views/inquiryManage'
 import OrderReleaseManageComponent from '../views/orderReleaseManage'
 import OrderManageComponent from '../views/orderManage'
 import Sumaccount from '../views/Sumaccount'
+import UserInfoComponent from '../views/userInfo'
 declare var $:any;
 Vue.use(Router)
 
@@ -70,6 +71,10 @@ Vue.use(Router)
           component: Sumaccount,
         },
         {
+          path: 'userInfo',
+          component: UserInfoComponent,
+        },
+        {
           path: 'demo',
           component: demo,
         },
@@ -107,9 +112,10 @@ router.beforeEach((to, from, next) => {
   store.state.token=token;
         //判断是否需要登录权限 以及是否登录
         if (!store.state.token && to.path !== '/login') {// 判断是否登录
-          next({
-            path: '/login',
-        })
+        //   next({
+        //     path: '/login',
+        // })
+        next()
         } else {
           next()
           }
