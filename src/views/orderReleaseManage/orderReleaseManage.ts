@@ -4,7 +4,8 @@ declare var $: any;
 declare var bootbox: any;
 import pagination from '../../components/pagination'
 @Component({
-    template: require('./orderReleaseManage.html')
+    template: require('./orderReleaseManage.html'),
+    components:{pagination}
 })
 
  export default class OrderReleaseManageComponent extends Vue {
@@ -39,7 +40,7 @@ import pagination from '../../components/pagination'
     }
     /**列表数据 */
     orderReleaseData=[];
-    ready=function(){
+    mounted(){
         let routerName = this.$route.path;
         this.orderReleaseData = [];
         if(window.localStorage.getItem(String(routerName))){
@@ -113,8 +114,16 @@ import pagination from '../../components/pagination'
                             bootbox.confirm("是否终结该订单!",(result)=>{
                                 if(result){
                                     api_cspOrder.CspOrder.editCspOrder(row.id).then((res)=>{
-                                        // this.$broadcast('reset');
-                                        this.load(this.skip,this.count);
+                                        console.log("res",res)
+                                        if(res.success){
+                                                // this.$broadcast('reset');
+                                            this.load(this.skip,this.count);
+                                            bootbox.alert('终结订单成功');
+                                        }else{
+                                            bootbox.alert('终结订单失败');
+                                        }
+                                    
+                                       
                                     });
                                 }else{
                                     return;
@@ -140,11 +149,13 @@ import pagination from '../../components/pagination'
                             bootbox.confirm("是否删除订单!",(result)=>{
                                 if(result){
                                     api_cspOrder.CspOrder.deleteCspOrder(row.id).then((res)=>{
+                                        console.log('res',res)
                                         if(res.success){
                                             if(this.orderReleaseData.length == 1){
                                                 console.log(this.currentPage);
                                                 this.currentPage = this.currentPage -1;
-                                                this.$broadcast('changeCurrentPage',{currentPage:this.currentPage});
+                                               // this.$broadcast('changeCurrentPage',{currentPage:this.currentPage});
+                                               // this.$broadcast('changeCurrentPage',{currentPage:this.currentPage});
                                                 this.skip = (this.currentPage - 1)*10;
                                                 this.load(this.skip,this.count);
                                             }else{
@@ -231,7 +242,7 @@ import pagination from '../../components/pagination'
    /**
     * 跳转订单新增页面
     */
-    LinkToOrderReleaseAdd=()=>{
+    LinkToOrderReleaseAdd(){
         var rowSelected;
         rowSelected=$('#orderReleaseManage_table').bootstrapTable('getSelections')[0];
         if(rowSelected){
@@ -241,19 +252,25 @@ import pagination from '../../components/pagination'
         }
     }
     /* 跳转批量导入界面 */
-    batchImport=()=>{
+    batchImport(){
         this.$router.push('batchImport');
     }
 
         /* 分页 */
-        pageChange=(event)=>{
+        // pageChange=(event)=>{
+        //     this.skip = event.pageIndex;
+        //     this.count = event.pageSize;
+        //     this.currentPage = event.currentPage;
+        //     this.localPage(this.skip,this.count,this.currentPage)
+        //     this.load(this.skip,this.count);
+        // }
+         pageChange(event){
             this.skip = event.pageIndex;
             this.count = event.pageSize;
             this.currentPage = event.currentPage;
             this.localPage(this.skip,this.count,this.currentPage)
             this.load(this.skip,this.count);
         }
-    
 }
 
   

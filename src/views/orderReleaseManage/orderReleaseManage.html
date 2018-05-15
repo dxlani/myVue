@@ -20,7 +20,7 @@
                         </select>
                     </div>
                     <!--<div class="line line-xs pull-in"></div>-->
-                    <div class="line  pull-in show-ls"></div>
+                    <div class=""></div>
                     <label class="control-label pull-left ls-p-r-15 col-lg-010 col-ls-2 col-md-2 col-sm-3">发货起始时间</label>
                     <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group date has-feedback">
                             <input id="orderReleaseManage_startTime" name="startTime" datetimepicker plugintype="datetime" v-model="query.startTime" placeholder="请输入发货起始时间" class="form-control" type="text" />
@@ -71,10 +71,7 @@
             <div class="line line-xs pull-in"></div>
             <div class="table-responsive" >
                 <table id="orderReleaseManage_table" name="table" class="table table-hover" data-events="actionEvents"></table>
-                <pagination
-                    :total="Records" 
-                    @pageIndexChange="onPageIndexChange($event)"
-                ></pagination> 
+                <pagination :total="Records" @pageIndexChange="pageChange"></pagination>
             </div>
             <div  class="panel-body">   
                 <div class="form-group">
