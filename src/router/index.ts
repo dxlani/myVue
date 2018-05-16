@@ -17,6 +17,7 @@ import InquiryManageComponent from '../views/inquiryManage'
 import OrderReleaseManageComponent from '../views/orderReleaseManage'
 import OrderManageComponent from '../views/orderManage'
 import Sumaccount from '../views/Sumaccount'
+import SumaccountDetailComponent from '../views/SumaccountDetail'
 import UserInfoComponent from '../views/userInfo'
 declare var $:any;
 Vue.use(Router)
@@ -71,12 +72,12 @@ Vue.use(Router)
           component: Sumaccount,
         },
         {
-          path: 'userInfo',
-          component: UserInfoComponent,
+          path: 'SumaccountDetail',
+          component: SumaccountDetailComponent,
         },
         {
-          path: 'demo',
-          component: demo,
+          path: 'userInfo',
+          component: UserInfoComponent,
         },
         {
           path: 'hello',

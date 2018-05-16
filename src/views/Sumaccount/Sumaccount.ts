@@ -1,23 +1,26 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import Router from 'vue-router'
 import api_sumaccount from '../../api/api_sumaccount'
 import pagination from '../../components/pagination'
 import './Sumaccount.scss'
 
 declare var $: any;
 declare var bootbox: any;
+// Vue.use(Router)
+// const router = new Router();
 
 @Component({
     template: require('./Sumaccount.html'),
     components:{
-        pagination
+        pagination:pagination,
     },
 })
 
 export default class Sumaccount extends Vue {
-    el: '#sumaccount'
     records:number=1;
     skip:number;
     count:number;
+    currentPage:number;
     seeks = true;
     /**
      * 总计费用
@@ -35,11 +38,11 @@ export default class Sumaccount extends Vue {
      * 回单状态枚举
      */
     receiptStatusList=[
-        {text:"全部", value:""},
-        {text:"无回单", value:"1"},
-        {text:"回单待回", value:"2"},
-        {text:"回单部分已回", value:"3"},
-        {text:"回单已回", value:"4"},
+        {text:"全部", value:0},
+        {text:"无回单", value:1},
+        {text:"回单待回", value:2},
+        {text:"回单部分已回", value:3},
+        {text:"回单已回", value:4},
     ]
     /**
      * 查询条件
@@ -52,10 +55,10 @@ export default class Sumaccount extends Vue {
         originAddress: '',
         destinationAddress: '',
         orderNumber:'',
-        receiptStatus:'',
+        receiptStatus:0,
     }
     
-    mounted () {
+    mounted() {
         let routerName = this.$route.path;
         if(window.localStorage.getItem(String(routerName))){
             this.checkQuery = JSON.parse(window.localStorage.getItem(String(routerName)))
@@ -68,7 +71,7 @@ export default class Sumaccount extends Vue {
                 originAddress: '',
                 destinationAddress: '',
                 orderNumber:'',
-                receiptStatus:this.receiptStatusList[0].value
+                receiptStatus:0
             }
         }
         if(window.localStorage.getItem(String(routerName + 'Page'))){
@@ -78,16 +81,7 @@ export default class Sumaccount extends Vue {
         }else{
             this.skip = 0;
             this.count = 10;
-        } 
-       
-        this.$on('pageIndexChange', function (event) {
-            this.count = event.pageSize;
-            this.skip = event.pageIndex;
-            this.currentPage = event.currentPage;
-            this.localPage(this.skip,this.count,this.currentPage)
-            this.load(this.skip, this.count);
-        });
-
+        }
         $('#sumaccount_startTime').datetimepicker();
         $('#sumaccount_endTime').datetimepicker();
 
@@ -203,8 +197,13 @@ export default class Sumaccount extends Vue {
                         }
                     },
                     events: {
-                        'click .detailOrder': function (e, value, row, index) {
-                            this.$router.push('SumaccountDetail/?id=' + row.id);
+                        'click .detailOrder': (e, value, row, index)=> {
+                            this.$router.push({
+                                path:'SumaccountDetail',
+                                query:{
+                                    id:row.id,
+                                }
+                            })
                         },
                     },
                 }
@@ -218,11 +217,11 @@ export default class Sumaccount extends Vue {
     /**
      * 查询
      */
-    querySum = function () {
+    querySum = function() {
         this.seeks = true;
         this.skip = 0;
         this.currentPage = 1;
-        this.$broadcast('reset');
+        this.$refs.pagination.$emit('reset');
         this.localHistory(this.$route);
         this.localPage(this.skip,this.count,this.currentPage);
         this.load(this.skip,this.count);
@@ -231,23 +230,25 @@ export default class Sumaccount extends Vue {
     /**
      * 加载数据
      */
-    load = function (skip, count) {
+    load(skip, count) {
         api_sumaccount.CheckFinance.GetOrderFinceList(this.checkQuery.startTime, this.checkQuery.endTime, this.checkQuery.goodsName, this.checkQuery.originAddress, this.checkQuery.destinationAddress,
             this.checkQuery.goodsType,this.checkQuery.orderNumber,this.checkQuery.receiptStatus,skip, count).then((res) => {
-                if(res.data)
-            $('#sumaccount_table').bootstrapTable('load', res.data);
-            var a = res.data;
-            this.logisticsId = res.logisticsId;
-            this.clientId = res.clientId;
-            this.seeks = false;
-            this.records = res.total == 0 ? 0.5 : res.total;
+                if(res.data){
+                    $('#sumaccount_table').bootstrapTable('load', res.data);
+                }else{
+                    $('#sumaccount_table').bootstrapTable('load', []);
+                }
+                this.logisticsId = res.logisticsId;
+                this.clientId = res.clientId;
+                this.seeks = false;
+                this.records = res.total == 0 ? 0.5 : res.total;
         }, function (rej) {
             this.seeks = false;
         });
     }
     
     //获取列表总费用
-    loadtotal = function () {
+    loadtotal() {
         api_sumaccount.CheckFinance.GetPriceTotle(this.checkQuery.startTime, this.checkQuery.endTime, this.checkQuery.goodsName, this.checkQuery.originAddress, this.checkQuery.destinationAddress,this.checkQuery.goodsType,this.checkQuery.orderNumber,this.checkQuery.receiptStatus).then((res) => {
             this.priceTotal = res;
         }, function (rej) {
@@ -256,7 +257,7 @@ export default class Sumaccount extends Vue {
     }
 
     //存储搜索条件
-    localHistory = function(state){
+    localHistory(state){
         if(state){
             let routerName = state.path;
             if(routerName.search("Sumaccount")>0){
@@ -266,12 +267,12 @@ export default class Sumaccount extends Vue {
     }
 
     //存储页数
-    localPage = function(skip,count,currentPage){
+    localPage(skip,count,currentPage){
         var routerName = this.$route.path;
         window.localStorage.setItem(String(routerName+'Page'),JSON.stringify({skip:skip,count:count,currentPage:currentPage}));
     }
 
-    downExport = function () {
+    downExport() {
         api_sumaccount.CheckFinance.GetOrderFinceExport(this.logisticsId,this.clientId,this.checkQuery.startTime, this.checkQuery.endTime, this.checkQuery.goodsName, this.checkQuery.originAddress, this.checkQuery.destinationAddress,this.checkQuery.goodsType,this.checkQuery.orderNumber,this.checkQuery.receiptStatus,0, this.records);
         // window.location.href = dataService().baseUrl +  "CheckFinance/GetOrderFinceExport?LogisticsCompanyId=" + this.logisticsId +"&clientId="+ this.clientId+ "&startTime=" + this.checkQuery.startTime + "&endTime=" +this.checkQuery.endTime+ "&GoodsName=" + this.checkQuery.goodsName + "&OriginAddress=" + this.checkQuery.originAddress + "&DestinationAddress=" + this.checkQuery.destinationAddress + "&skip=" + 0 + "&count=" + this.records
         // }
@@ -279,6 +280,10 @@ export default class Sumaccount extends Vue {
 
     /* 分页 */
     pageChange=(event)=>{
-        
+        this.count = event.pageSize;
+        this.skip = event.pageIndex;
+        this.currentPage = event.currentPage;
+        this.localPage(this.skip,this.count,this.currentPage)
+        this.load(this.skip, this.count);
     }
 }
