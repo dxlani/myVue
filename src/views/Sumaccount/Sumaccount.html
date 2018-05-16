@@ -82,7 +82,7 @@
             </div>
             <div class="table-responsive" >
                 <table id="sumaccount_table" class="table table-hover" data-events="actionEvents"></table>
-                <pagination :total="records" v-on:pageIndexChange="pageChange(event)"></pagination>    
+                <pagination ref="pagination" :total="records" @pageIndexChange="pageChange"></pagination>    
             </div>
             <div class="panel-body">
                 <label class="form-group" id="sumaccount_priceTotal">

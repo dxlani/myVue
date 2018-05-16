@@ -1,0 +1,2 @@
+import SumaccountDetailComponent from './SumaccountDetail'
+export default SumaccountDetailComponent
