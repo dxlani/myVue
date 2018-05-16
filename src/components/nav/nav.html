@@ -22,7 +22,7 @@
     <ul class="nav">
         <li class="line dk"></li>
         <li class="nav-li" >
-            <a  href="#/app/inquiry/inquiryReleaseManage" class="auto" >
+            <a  href="#/app/inquiry/inquiryReleaseManage" class="auto" @click="clearStorage()">
                 <span class="pull-right text-muted">
                     <i class="glyphicon glyphicon-chevron-right text"></i>
                     <i class="glyphicon glyphicon-chevron-down text-active"></i>
@@ -34,19 +34,19 @@
 
             <ul class="nav nav-sub dk">
                 <li class="nav-li lamyManage">
-                    <a class="auto"  href="#/app/inquiry/inquiryReleaseManage">
+                    <a class="auto"  href="#/app/inquiry/inquiryReleaseManage"  @click="clearStorage()">
                         <span>询价发布管理</span>
                     </a>
                 </li>
                 <li class="nav-li">
-                    <a class="auto"  href="#/app/inquiry/inquiryManage">
+                    <a class="auto"  href="#/app/inquiry/inquiryManage"  @click="clearStorage()">
                         <span>询价单管理</span>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="nav-li" >
-            <a href="#/app/order/orderReleaseManage" class="auto">
+            <a href="#/app/order/orderReleaseManage" class="auto"  @click="clearStorage()">
                 <span class="pull-right text-muted">
                     <i class="glyphicon glyphicon-chevron-right text"></i>
                     <i class="glyphicon glyphicon-chevron-down text-active"></i>
@@ -57,25 +57,25 @@
 
             <ul class="nav nav-sub dk">
                 <li class="nav-li lamyManage">
-                    <a class="auto" href="#/app/order/orderReleaseManage">
+                    <a class="auto" href="#/app/order/orderReleaseManage"  @click="clearStorage()">
                         <span>订单发布管理</span>
                     </a>
                 </li>
                 <li class="nav-li">
-                    <a class="auto" href="#/app/order/orderManage">
+                    <a class="auto" href="#/app/order/orderManage"  @click="clearStorage()">
                         <span>订单管理</span>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="nav-li">
-            <a href="#/app/Sumaccount" class="auto" >
+            <a href="#/app/Sumaccount" class="auto"  @click="clearStorage()">
                 <i class="glyphicon  glyphicon-sort icon text-info-dker"></i>
                 <span>财务对账</span>
             </a>
         </li>
         <li class="nav-li" >
-            <a href="#/app/dataAnalysis" class="auto">
+            <a href="#/app/dataAnalysis" class="auto"  @click="clearStorage()">
                 <span class="pull-right text-muted">
                     <i class="glyphicon glyphicon-chevron-right text"></i>
                     <i class="glyphicon glyphicon-chevron-down text-active"></i>
@@ -85,24 +85,24 @@
             </a>
             <ul class="nav nav-sub dk">
                 <li class="nav-li lamyManage">
-                    <a class="auto" href="#/app/dataAnalysis">
+                    <a class="auto" href="#/app/dataAnalysis" @click="clearStorage()"> 
                         <span>需求分析</span>
                     </a>
                 </li>
                 <li class="nav-li">
-                    <a class="auto"  href="#/app/dataAnalysisCost">
+                    <a class="auto"  href="#/app/dataAnalysisCost"  @click="clearStorage()">
                         <span>成本分析</span>
                     </a>
                 </li>
                 <li class="nav-li">
-                    <a class="auto"  href="#/app/qualityWave">
+                    <a class="auto"  href="#/app/qualityWave"  @click="clearStorage()">
                         <span>质量分析</span>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="nav-li">
-            <a  href="#/app/userInfo" class="auto" >
+            <a  href="#/app/userInfo" class="auto"  @click="clearStorage()">
                 <i class="glyphicon glyphicon-user icon text-info-dker"></i>
                 <span>个人设置</span>
             </a>

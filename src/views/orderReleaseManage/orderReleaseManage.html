@@ -1,0 +1,85 @@
+<div>
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">订单发布管理</h1>
+    </div>
+    <div class="wrapper-md" id="orderReleaseManage">
+        <div class="panel panel-default">
+                <div class="panel-heading font-bold">查询</div>
+                <div class="form-horizontal panel-body">
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">订单编号</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
+                        <input type="text" class="form-control" id="orderReleaseManage_orderId" name="orderId" v-model="query.orderId" placeholder="请输入总询价编号">
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">订单状态</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
+                        <select class="form-control input-sm" id="orderReleaseManage_orderStatus" name="orderStatus" v-model="query.orderStatus">
+                            <!-- <option value="" selected>全部</option> -->
+                            <option v-for="option in orderStatusList" v-bind:value="option.value">
+                                {{ option.text }}
+                            </option>
+                        </select>
+                    </div>
+                    <!--<div class="line line-xs pull-in"></div>-->
+                    <div class=""></div>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货起始时间</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group date has-feedback">
+                            <input id="orderReleaseManage_startTime" name="startTime" datetimepicker plugintype="datetime" v-model="query.startTime" placeholder="请输入发货起始时间" class="form-control" type="text" />
+                            <span id="openApplicationStartTime" name="openApplicationStartTime" class="form-control-feedback curpoint">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                    </div>
+    
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货结束时间</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group date has-feedback">
+                            <input id="orderReleaseManage_endTime" name="endTime" datetimepicker plugintype="datetime" v-model="query.endTime" placeholder="请输入发货结束时间" class="form-control" type="text" />
+                            <span id="openApplicationEndTime" name="openApplicationEndTime" class="form-control-feedback curpoint">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                    </div>
+                    <div class="line line-xs pull-in"></div>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">销售编号</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
+                        <input id="orderReleaseManage_clientOrderId" name="clientOrderId" class="form-control" v-model="query.clientOrderId" type="text" placeholder="请输入销售编号">
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">发货地址</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
+                        <input type="text" class="form-control" id="orderReleaseManage_startAddress" name="startAddress" v-model="query.startAddress" placeholder="请输入发货地址">
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3">送货地址</label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
+                        <input type="text" class="form-control" id="orderReleaseManage_endAddress" name="endAddress" v-model="query.endAddress" placeholder="请输入送货地址">
+                    </div>
+                    <label class="control-label pull-left ls-p-r-15 ls-p-r-15 col-lg-1 col-ls-2 col-md-2 col-sm-3"></label>
+                    <div class="col-lg-2 col-ls-4 col-md-9 col-sm-9  form-group">
+                        <button @click="queryOrderRelease()" class="btn btn-sm btn-default btn-addon" id="orderReleaseManage_queryOrderRelease" name="queryOrderRelease">
+                            <i class="glyphicon glyphicon-search" v-show="!seeks"></i>
+                            <i v-show="seeks">
+                                <b class="fa fa-spinner no-bordr"  v-bind:class="{'fa-spin':seeks}"></b>
+                            </i>
+                            <span v-show="!seeks">查询</span>
+                            <span v-show="seeks">查询中...</span>
+                        </button>
+                    </div>
+                </div>        
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                订单发布管理列表
+            </div>
+            <div class="line line-xs pull-in"></div>
+            <div class="table-responsive" >
+                <table id="orderReleaseManage_table" name="table" class="table table-hover" data-events="actionEvents"></table>
+                <pagination :total="Records" @pageIndexChange="pageChange"></pagination>
+            </div>
+            <div  class="panel-body">   
+                <div class="form-group">
+                    <a id="releaseManage_releaseAdd" name="releaseManage_releaseAdd" @click="LinkToOrderReleaseAdd()" class="pull-right-xs btn btn-sm btn-primary btn-addon"><i class="glyphicon glyphicon-list-alt"></i>订单新增</a>
+                    <a id="releaseManage_releaseAdd" name="releaseManage_releaseAdd" @click="batchImport()" class="pull-right-xs btn btn-sm btn-success btn-addon"><i class="glyphicon glyphicon-import"></i>批量导入</a>
+                </div>
+            </div>
+        </div>
+    
+        
+    </div>
+</div>

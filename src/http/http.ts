@@ -141,7 +141,7 @@ ax.interceptors.response.use(
             return ax
                 .put(url, data)
                 .then(res => {
-                    return res.data
+                    return res
                 })
                 .catch(err => {
                     handleError(err)
@@ -165,7 +165,7 @@ ax.interceptors.response.use(
         return ax
             .delete(url,data)
             .then(res => {
-                return res.data
+                return res
             })
             .catch(err => {
                 handleError(err)
