@@ -67,7 +67,7 @@
             <div class="line line-xs pull-in"></div>
             <div class="table-responsive">
                 <table id="inquiryReleaseManage_table" class="table table-hover" data-events="actionEvents" style="min-width:1000px;"></table>
-                <pagination :total="Records" @pageIndexChange="pageChange"></pagination>
+                <pagination :total="Records" ref="pagination" @pageIndexChange="pageChange"></pagination>
             </div>
             <div class="panel-body">
                 <div class="form-group">

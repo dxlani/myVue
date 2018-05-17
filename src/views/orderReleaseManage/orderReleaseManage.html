@@ -70,7 +70,7 @@
             <div class="line line-xs pull-in"></div>
             <div class="table-responsive" >
                 <table id="orderReleaseManage_table" name="table" class="table table-hover" data-events="actionEvents"></table>
-                <pagination :total="Records" @pageIndexChange="pageChange"></pagination>
+                <pagination :total="Records" ref="pagination" @pageIndexChange="pageChange"></pagination>
             </div>
             <div  class="panel-body">   
                 <div class="form-group">

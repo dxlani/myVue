@@ -8,7 +8,7 @@ import pagination from '../../components/pagination'
 @Component({
     template: require('./inquiryManage.html'),
     components:{
-        pagination
+        pagination:pagination
     },
 })
 
@@ -152,11 +152,11 @@ export default class InquiryManageComponent extends Vue {
             }
         );
     }
-    query(){
+    query=function(){
        this.seeks=false;
        this.skip = 0;
        this.currentPage = 1;
-    //    this.$broadcast('reset');
+       this.$refs.pagination.$emit('reset');
        this.localHistory(this.$route);
        this.localPage(this.skip,this.count,this.currentPage);
        this.load(this.inquiryParameter,this.skip,this.count);

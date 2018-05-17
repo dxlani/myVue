@@ -5,7 +5,9 @@ declare var bootbox: any;
 import pagination from '../../components/pagination'
 @Component({
     template: require('./orderReleaseManage.html'),
-    components:{pagination}
+    components:{
+        pagination:pagination
+    }
 })
 
  export default class OrderReleaseManageComponent extends Vue {
@@ -145,7 +147,7 @@ import pagination from '../../components/pagination'
                         /**
                          * 删除订单
                          */
-                        'click .remove':(e,value,row,index)=>{
+                        'click .remove':function(e,value,row,index){
                             bootbox.confirm("是否删除订单!",(result)=>{
                                 if(result){
                                     api_cspOrder.CspOrder.deleteCspOrder(row.id).then((res)=>{
@@ -154,8 +156,8 @@ import pagination from '../../components/pagination'
                                             if(this.orderReleaseData.length == 1){
                                                 console.log(this.currentPage);
                                                 this.currentPage = this.currentPage -1;
-                                               // this.$broadcast('changeCurrentPage',{currentPage:this.currentPage});
-                                               // this.$broadcast('changeCurrentPage',{currentPage:this.currentPage});
+                                                this.$refs.pagination.$emit('changeCurrentPage',{currentPage:this.currentPage});
+                                                // this.$broadcast('changeCurrentPage',{currentPage:this.currentPage});
                                                 this.skip = (this.currentPage - 1)*10;
                                                 this.load(this.skip,this.count);
                                             }else{
@@ -208,9 +210,10 @@ import pagination from '../../components/pagination'
     /**
      * 查询
      */
-    queryOrderRelease(){
+    queryOrderRelease=function(){
        this.seeks=true;
      //  this.$broadcast('reset');
+       this.$broadcast('reset');
        this.skip = 0;
        this.currentPage = 1; 
        this.localHistory(this.$route);

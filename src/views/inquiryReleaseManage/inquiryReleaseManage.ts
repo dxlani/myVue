@@ -6,7 +6,7 @@ import pagination from '../../components/pagination'
 @Component({
     template: require('./inquiryReleaseManage.html'),
     components:{
-        pagination
+        pagination:pagination
     },
 })
 export default class InquiryReleaseManageComponent extends Vue {
@@ -99,7 +99,7 @@ export default class InquiryReleaseManageComponent extends Vue {
                                     }
                                 })
                             },
-                            'click .remove':(e,value,row,index)=>{
+                            'click .remove':function(e,value,row,index){
                                 bootbox.confirm("是否删除该订单？",(bootboxResult)=>{
                                     if(bootboxResult){
                                         api_cspInquiry.cspInquiry.deleteCspInquiry(row.id).then((res)=>{
@@ -107,7 +107,7 @@ export default class InquiryReleaseManageComponent extends Vue {
                                                 if(this.inquiryReleaseData.length == 1){
                                                     console.log(this.currentPage);
                                                     this.currentPage = this.currentPage -1;
-                                                    // this.$broadcast('changeCurrentPage',{currentPage:this.currentPage});
+                                                    this.$refs.pagination.$emit('changeCurrentPage',{currentPage:this.currentPage});
                                                     this.skip = (this.currentPage - 1)*10;
                                                     this.load(this.skip,this.count);
                                                 }else{
@@ -163,11 +163,11 @@ export default class InquiryReleaseManageComponent extends Vue {
         });
     }
     //查询调用
-    queryUsers(){
+    queryUsers=function(){
         this.seeks=true;
         this.skip = 0;
         this.currentPage = 1;
-        // this.$broadcast('reset');
+       this.$refs.pagination.$emit('reset');
         this.localHistory(this.$route);
         this.localPage(this.skip,this.count,this.currentPage);
         this.load(this.skip,this.count);

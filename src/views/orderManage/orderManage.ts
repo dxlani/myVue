@@ -6,7 +6,9 @@ declare var bootbox: any;
 import pagination from '../../components/pagination'
 @Component({
     template: require('./orderManage.html'),
-    components:{pagination}
+    components:{
+        pagination:pagination
+        }
 })
 
 export default class OrderManageComponent extends Vue {
@@ -90,13 +92,13 @@ export default class OrderManageComponent extends Vue {
             this.skip = 0;
             this.count = 10;
         } 
-        this.$on('pageIndexChange', function(event) {
-            this.count = event.pageSize;
-            this.skip = event.pageIndex;
-            this.currentPage = event.currentPage;
-            this.localPage(this.skip,this.count,this.currentPage)
-            this.load(this.skip,this.count);
-        });
+        // this.$on('pageIndexChange', function(event) {
+        //     this.count = event.pageSize;
+        //     this.skip = event.pageIndex;
+        //     this.currentPage = event.currentPage;
+        //     this.localPage(this.skip,this.count,this.currentPage)
+        //     this.load(this.skip,this.count);
+        // });
         $('#orderManage_ApplicationStartTime').datetimepicker({onChangeDateTime:(dp,$input)=>{this.orderQuery.startTime=$input.val()}});
         $('#orderManage_ApplicationEndTime').datetimepicker({onChangeDateTime:(dp,$input)=>{this.orderQuery.endTime=$input.val()}});
         $('#orderManage_DeliveryStartTime').datetimepicker({onChangeDateTime:(dp,$input)=>{this.orderQuery.deliveryStartTime=$input.val()}});
@@ -229,9 +231,10 @@ export default class OrderManageComponent extends Vue {
     }
 
     //查询
-    queryOrder(){
+    queryOrder=function(){
         this.seeks=true;
         // this.$broadcast('reset');
+        this.$refs.pagination.$emit('reset')
         this.skip = 0;
         this.currentPage = 1;
         this.localHistory(this.$route);
