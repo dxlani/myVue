@@ -5263,3 +5263,12 @@
     .navbar-collapse a:hover a{
         color:#141719;
     }
+
+
+    /* 表单校验样式 */
+    .form-control.validator-success:focus{
+        border-color: #27c24c;
+    }
+    .form-control.validator-false:focus{
+        border-color:#e4393c;
+    }

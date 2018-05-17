@@ -2,17 +2,6 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
 import api_login from '../../api/api_login'
 import pagination from '../../components/pagination'
-import VeeValidate,{ Validator } from 'vee-validate'
- Vue.use(VeeValidate);
-
- Validator.extend('phone', {
-    getMessage: (field, [args]) => `请输入正确的手机号码`,
-    validate: (value, [args]) =>{
-        const reg = /^((13|14|15|17|18)[0-9]{1}\d{8})$/;
-        return reg.test(value) 
-    }  
-});
-
  import './userInfo.scss'
 declare var $: any;
 declare var bootbox: any;
@@ -22,11 +11,10 @@ declare var bootbox: any;
     // mixins: [template],
 })
 
+
 export default class UserInfoComponent extends Vue{
     loginName="";
     loginPassword="";
-
-
     //v-model初始化
     userName:string="";
     userGroupName:string="";
@@ -36,7 +24,20 @@ export default class UserInfoComponent extends Vue{
     cName:string = "";
     vPassword:string = "";
     editCount:number = null;
-
+    get validation(){
+        if(this.userPassword =="" || this.rUserPassword =="" || this.rUserPasswordAgain ==""){
+            return true;
+         }else{
+             return false; 
+         }
+    }
+    get validation1(){
+        if(this.cName =="" || this.vPassword =="" ){
+            return true;
+         }else{
+             return false; 
+         }
+    }
     mounted(){
         this.userName = window.sessionStorage.getItem("userName");
         this.userGroupName="客户单位";

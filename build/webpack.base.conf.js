@@ -105,7 +105,7 @@ module.exports = {
       jquery: 'jquery',
       jQuery: "jquery",
       bootbox:'bootbox',
-      Vue: 'vue',
+      Vue: 'vue'
   })
    ]
 }

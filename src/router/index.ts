@@ -112,10 +112,9 @@ router.beforeEach((to, from, next) => {
   store.state.token=token;
         //判断是否需要登录权限 以及是否登录
         if (!store.state.token && to.path !== '/login') {// 判断是否登录
-        //   next({
-        //     path: '/login',
-        // })
-        next()
+          next({
+            path: '/login',
+        })
         } else {
           next()
           }
