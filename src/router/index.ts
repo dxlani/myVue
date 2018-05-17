@@ -17,6 +17,7 @@ import InquiryManageComponent from '../views/inquiryManage'
 import OrderReleaseManageComponent from '../views/orderReleaseManage'
 import OrderManageComponent from '../views/orderManage'
 import Sumaccount from '../views/Sumaccount'
+import SumaccountDetailComponent from '../views/SumaccountDetail'
 import UserInfoComponent from '../views/userInfo'
 declare var $:any;
 Vue.use(Router)
@@ -71,12 +72,12 @@ Vue.use(Router)
           component: Sumaccount,
         },
         {
-          path: 'userInfo',
-          component: UserInfoComponent,
+          path: 'SumaccountDetail',
+          component: SumaccountDetailComponent,
         },
         {
-          path: 'demo',
-          component: demo,
+          path: 'userInfo',
+          component: UserInfoComponent,
         },
         {
           path: 'hello',
@@ -113,22 +114,29 @@ router.beforeEach((to, from, next) => {
         //判断是否需要登录权限 以及是否登录
         if (!store.state.token && to.path !== '/login') {// 判断是否登录
           next({
-            path: '/login',
-        })
+              path: '/login',
+          });
+          $('body').addClass('body-bg')
+        // next()
         } else {
           next()
-          }
+        }
           //路由钩子改标题
         if(to.meta.title){
           document.title = to.meta.title
         }
-        //登录页加背景图
-        if(to.path=="/login"){
-         $('body').addClass('body-bg')
-        }else{
-          $('body').removeClass('body-bg')
-        }
-   })
+        
+})
+
+router.afterEach((to,from)=>{
+  //登录页加背景图
+  if(to.path=="/login"){
+    // if(to.path=="/login"){
+    $('body').addClass('body-bg')
+  }else{
+    $('body').removeClass('body-bg')
+  }
+})
 
 export default router
 

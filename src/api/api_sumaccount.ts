@@ -2,6 +2,7 @@ import { Post, Get, Patch, Put, Delete,ax} from '../http/http'
 
 export default {
     CheckFinance:{
+        /* 获取对账列表 */
         GetOrderFinceList:function(
             startTime: string,
             endTime: string,
@@ -16,6 +17,7 @@ export default {
         ){
             return Get("CheckFinance/GetOrderFinceList?startTime=" + startTime + "&endTime=" +endTime+ "&GoodsName=" + goodsName + "&OriginAddress=" + originAddress + "&DestinationAddress=" + destinationAddress + "&GoodsTypeName=" + goodsTypeName  + "&OrderNumber=" + orderNumber + "&ReceiptStatus=" + receiptStatus +  "&skip=" + skip + "&count=" + count,{});
         },
+        /* 获取费用合计 */
         GetPriceTotle:function(
             startTime: string,
             endTime: string,
@@ -28,6 +30,7 @@ export default {
         ){
             return Get("CheckFinance/GetPriceTotle?startTime=" + startTime + "&endTime=" +endTime+ "&GoodsName=" + GoodsName + "&OriginAddress=" + OriginAddress + "&DestinationAddress=" + DestinationAddress + "&GoodsTypeName=" + goodsTypeName  + "&OrderNumber=" + orderNumber + "&ReceiptStatus=" + receiptStatus,{});  
         },
+        /* 导出报表 */
         GetOrderFinceExport: function (
             LogisticsCompanyId: string,
             clientId: string,
@@ -50,6 +53,9 @@ export default {
         },
         getReceiveableFee:function(){
             return Get("CheckFinance/GetReceiveableFee",{})
+        },
+        getOrder: function (id: string) {
+            return Get("Order/getOrder/" + id,{})
         }
     }
 }
