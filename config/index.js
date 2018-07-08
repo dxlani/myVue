@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/csp': {
+        // 测试环境
+        target: 'http://csp.sowl.cn/csp',  // 接口域名
+        changeOrigin: true,  //是否跨域
+        pathRewrite: {
+            '^/csp': ''   //需要rewrite重写的,
+        }              
+    }
+    },
     assetsSub: 'assets',
     assetsPub: './src/assets/',
     // Various Dev Server settings
