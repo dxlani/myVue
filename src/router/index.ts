@@ -12,8 +12,9 @@ import store from '../vuex/store'
 import login from '../views/login'
 import app from '../components/app'
 import HomeComponent from '../views/home'
-import InquiryReleaseManageComponent from '../views/inquiryReleaseManage'
-import InquiryManageComponent from '../views/inquiryManage'
+// import InquiryReleaseManageComponent from '../views/inquiryReleaseManage'
+const InquiryReleaseManageComponent = r => require.ensure([], () => r(require('../views/inquiryReleaseManage')))/* 懒加载方法一 */
+// import InquiryManageComponent from '../views/inquiryManage'
 import OrderReleaseManageComponent from '../views/orderReleaseManage'
 import OrderManageComponent from '../views/orderManage'
 import Sumaccount from '../views/Sumaccount'
@@ -57,7 +58,9 @@ Vue.use(Router)
         },
         {
           path: 'inquiry/inquiryManage',
-          component: InquiryManageComponent,
+          component: (resolve) => {
+            require(['../views/inquiryManage'], resolve) // 这里是你的模块 不用import去引入了 懒加载方法二
+        },
         },
         {
           path: 'order/orderReleaseManage',

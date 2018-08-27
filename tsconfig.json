@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     // 允许编译javascript文件
     "allowJs": true,
-    "module": "es2015",
+    "module": "esnext",
     "target": "esnext",
     // 以严格模式解析
     "strict": false,
