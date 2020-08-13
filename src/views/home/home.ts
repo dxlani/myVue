@@ -177,6 +177,38 @@ export default class HomeComponent extends Vue {
             inquiryPieChart.resize();
         });
         var inquiryPie = {
+            title:[
+                {text:'标题文本1',},
+                {text:'标题文本2',},
+            ],
+            label: {
+                // 在文本中，可以对部分文本采用 rich 中定义样式。
+                // 这里需要在文本中使用标记符号：
+                // `{styleName|text content text content}` 标记样式名。
+                // 注意，换行仍是使用 '\n'。
+                formatter: [
+                    '{a|这段文本采用样式a}',
+                    '{b|这段文本采用样式b}这段用默认样式{x|这段用样式x}'
+                ].join('\n'),
+                rich: {
+                    a: {
+                        color: 'red',
+                        lineHeight: 10
+                    },
+                    b: {
+                        backgroundColor: {
+                            image: 'xxx/xxx.jpg'
+                        },
+                        height: 40
+                    },
+                    x: {
+                        fontSize: 18,
+                        fontFamily: 'Microsoft YaHei',
+                        borderColor: '#449933',
+                        borderRadius: 4
+                    },
+                }
+            },
             tooltip: {
                 trigger: 'item',
                 // trigger: 'axis',
